@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataByElijah | Services & Expertise</title>
+
+    <style>
+        /* Base Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar (Identical to other pages) */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%; 
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 100px; width: auto; vertical-align: middle; }
+        .nav-right { display: flex; align-items: center; gap: 3rem; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #38bdf8; }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 5rem 5% 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f8fafc;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header h1 span {
+            color: #38bdf8;
+        }
+
+        .page-header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+        }
+
+        /* Services Layout Container */
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        /* Individual Service Block */
+        .service-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-row:hover {
+            transform: translateY(-3px);
+            border-color: #475569;
+        }
+
+        /* Service Icon/Visual Area */
+        .service-visual {
+            flex: 1;
+            max-width: 120px;
+            background-color: #0f172a;
+            border-radius: 12px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            border: 1px solid #334155;
+            color: #38bdf8;
+        }
+
+        /* Service Text Content */
+        .service-content {
+            flex: 3;
+        }
+
+        .service-content h2 {
+            font-size: 1.75rem;
+            color: #f8fafc;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Deliverables List */
+        .deliverables-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .deliverables-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        .deliverables-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .deliverables-list li strong {
+            color: #e2e8f0;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-top: 1px solid #334155;
+            margin-top: 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.25rem;
+            color: #f8fafc;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #38bdf8;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #38bdf8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .service-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .service-visual {
+                margin-bottom: 1rem;
+            }
+
+            .deliverables-list li {
+                text-align: left; /* Keep bullets left-aligned even on mobile */
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="DataByElijah Logo">
+        </a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="services.html">Services</a>
+                <a href="dashboards.html">Dashboards</a>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="page-header">
+        <h1>Scalable Solutions for <span>Complex Data</span></h1>
+        <p>Whether you need to modernize an enterprise data warehouse or automate hours of manual workflow, I deliver end-to-end data engineering and business intelligence solutions tailored to your infrastructure.</p>
+    </header>
+
+    <!-- Main Services -->
+    <main class="services-container">
+        
+        <!-- Service 1: Business Intelligence -->
+        <section class="service-row">
+            <div class="service-visual">📊</div>
+            <div class="service-content">
+                <h2>Business Intelligence & Dashboards</h2>
+                <p>Data is only as valuable as the decisions it drives. I specialize in designing high-performance, interactive Power BI dashboards that transform complex, siloed datasets into clear, actionable executive insights. From strategic return mitigation models to operational metrics, your data will tell a story.</p>
+                <ul class="deliverables-list">
+                    <li><strong>Power BI Development:</strong> End-to-end report creation and DAX optimization.</li>
+                    <li><strong>Data Modeling:</strong> Star schema design to slash refresh times.</li>
+                    <li><strong>Performance Tuning:</strong> Optimizing reporting data layers for scale.</li>
+                    <li><strong>Executive Reporting:</strong> Tailored KPIs for stakeholders.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Service 2: Data Engineering -->
+        <section class="service-row">
+            <div class="service-visual">⚙️</div>
+            <div class="service-content">
+                <h2>Data Engineering & Architecture</h2>
+                <p>Solid analytics require a solid foundation. I architect robust ETL and ELT pipelines utilizing modern enterprise tools like Databricks, Microsoft Fabric, and PostgreSQL. I ensure your raw data is securely extracted, aggressively cleaned, and centralized for advanced downstream analytics.</p>
+                <ul class="deliverables-list">
+                    <li><strong>Cloud Pipelines:</strong> Databricks and Fabric integration.</li>
+                    <li><strong>Database Management:</strong> PostgreSQL and dimensional modeling.</li>
+                    <li><strong>Workflow Automation:</strong> Replacing manual data entry with reliable ELT.</li>
+                    <li><strong>Cost Optimization:</strong> Streamlining queries to reduce compute costs.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Service 3: Python Automation -->
+        <section class="service-row">
+            <div class="service-visual">🐍</div>
+            <div class="service-content">
+                <h2>Python Workflow Automation</h2>
+                <p>Stop paying for repetitive administrative tasks. I write bespoke Python scripts that seamlessly connect your disparate software systems. Whether it is scraping essential metrics, migrating datasets, or scheduling automated alert systems, I build code that gives you your time back.</p>
+                <ul class="deliverables-list">
+                    <li><strong>Custom Scripts:</strong> Eliminating repetitive spreadsheet tasks.</li>
+                    <li><strong>API Connections:</strong> Syncing data between third-party SaaS platforms.</li>
+                    <li><strong>File Processing:</strong> Automated cleaning of raw flat files (CSV, JSON).</li>
+                    <li><strong>Scheduled Jobs:</strong> Deploying scripts for 24/7 autonomous operation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Service 4: Applied AI -->
+        <section class="service-row">
+            <div class="service-visual">🧠</div>
+            <div class="service-content">
+                <h2>Applied AI & LLM Integration</h2>
+                <p>Leverage cutting-edge artificial intelligence to process the data a traditional database cannot. By building programmatic pipelines integrated with the Gemini API, I can help your business automatically categorize unstructured textual outputs, analyze raw images, and draft rich operational content.</p>
+                <ul class="deliverables-list">
+                    <li><strong>Computer Vision:</strong> Automated image processing and structuring.</li>
+                    <li><strong>Prompt Engineering:</strong> Optimizing API calls for strict data formatting.</li>
+                    <li><strong>Unstructured Data:</strong> Turning messy text into clean tabular data.</li>
+                    <li><strong>Process Generation:</strong> Automated content and listing drafts.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer / CTA -->
+    <section class="cta-section">
+        <h2>Ready to leverage your data?</h2>
+        <p>Let's schedule a consultation to discuss your specific infrastructure, reporting bottlenecks, or automation goals.</p>
+        <a href="contact.html" class="btn-primary">Book a Consultation</a>
+    </section>
+
+</body>
+</html>
