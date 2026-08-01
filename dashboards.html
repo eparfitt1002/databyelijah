@@ -29,24 +29,127 @@
     </style>
 </head>
 <body>
+<style>
+    /* Project Card Container */
+    .project-container {
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 2.5rem;
+        margin: 3rem auto;
+        max-width: 1200px;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+    }
 
-    <nav>
-        <a href="index.html" class="logo"><img src="logo.png" alt="DataByElijah Logo"></a>
-        <div class="nav-right">
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="dashboards.html" class="active">Dashboards</a>
-                <a href="insights.html">Insights</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </nav>
+    .project-header {
+        margin-bottom: 2rem;
+    }
 
-    <main class="coming-soon-container">
-        <h1>Dashboards & Projects</h1>
-        <p><iframe title="CFPB Complaint Analysis" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiMWU3YTQ3OTEtYjdhMS00YTk1LTk3ZjktY2E1YTFkOWI5ZTdkIiwidCI6IjBhZDIxYzgxLTY2M2EtNGUzMy04ZDk3LTBlOWZmYTU0ZmE3YiJ9&pageName=7288f56003b0302d5a5b" frameborder="0" allowFullScreen="true"></iframe></p>
+    .project-header h2 {
+        color: #f8fafc;
+        font-size: 2.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 800;
+    }
+
+    .project-header p {
+        color: #38bdf8;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Responsive iFrame Wrapper (16:9 Aspect Ratio) */
+    .iframe-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; 
+        margin-bottom: 2.5rem;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #334155;
+        background-color: #0f172a; /* Shows while loading */
+    }
+
+    .iframe-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* Description Typography */
+    .project-details {
+        color: #cbd5e1;
+        line-height: 1.7;
+    }
+
+    .project-details h3 {
+        color: #f8fafc;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+        font-size: 1.35rem;
+        font-weight: 700;
+    }
+    
+    .project-details p {
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+    }
+
+    .project-details ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .project-details li {
+        position: relative;
+        padding-left: 1.75rem;
+        font-size: 1.05rem;
+    }
+
+    .project-details li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        top: -2px;
+        font-size: 1.5rem;
+        color: #38bdf8;
+        font-weight: bold;
+    }
+
+    .project-details li strong {
+        color: #f8fafc;
+    }
+</style>
+
+<div class="project-container">
+    <div class="project-header">
+        <h2>CFPB Consumer Complaint Analysis</h2>
+    </div>
+
+    <!-- The dashboard will now automatically scale perfectly -->
+    <div class="iframe-wrapper">
+        <iframe title="CFPB Complaint Analysis" src="https://app.powerbi.com/view?r=eyJrIjoiMWU3YTQ3OTEtYjdhMS00YTk1LTk3ZjktY2E1YTFkOWI5ZTdkIiwidCI6IjBhZDIxYzgxLTY2M2EtNGUzMy04ZDk3LTBlOWZmYTU0ZmE3YiJ9&pageName=7288f56003b0302d5a5b" allowFullScreen="true"></iframe>
+    </div>
+
+    <!-- Data narrative pulled from your screenshot -->
+    <div class="project-details">
+        <h3>Project Overview</h3>
+        <p>This dashboard provides a comprehensive visual analysis of over <strong>8.3 million consumer complaints</strong> filed with the Consumer Financial Protection Bureau (CFPB) between January 2025 and July 2026. By structuring and visualizing this massive dataset, the report identifies systemic issues, geographic pain points, and company-specific trends within the financial sector.</p>
         
-    </main>
-
+        <h3>Key Insights Discovered</h3>
+        <ul>
+            <li><strong>Credit Bureaus Dominate the Data:</strong> The vast majority of consumer grievances are directed at the "Big Three" credit reporting agencies. TransUnion, Equifax, and Experian account for over 7.1 million of the total complaints analyzed.</li>
+            <li><strong>Root Cause Identification:</strong> Utilizing decomposition tree analysis, the data reveals that "Credit reporting" is the primary product of concern. Drilling down further, "Incorrect information" acts as the leading sub-issue, driving over 4.3 million specific complaints.</li>
+            <li><strong>Volume Trends & Geography:</strong> The 3-month rolling average highlights a steady, continuous upward trend in complaint volume from early 2025 through mid-2026. Additionally, geospatial tracking maps out regional densities of delayed company responses (taking over 3 days).</li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
