@@ -3,153 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View Power BI dashboards, data architecture projects, and Python automations by Elijah.">
-    <title>Dashboards | DataByElijah</title>
+    <title>DataByElijah | Dashboards & Projects</title>
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 5%; background-color: rgba(15, 23, 42, 0.95); border-bottom: 1px solid #1e293b; }
+        /* Base Reset & Smooth Scrolling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            /* This makes the page elegantly slide down to the anchors */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            line-height: 1.5;
+        }
+
+        /* Navigation Bar (Same as your homepage) */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%; 
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
+
         .logo { text-decoration: none; display: flex; align-items: center; }
         .logo img { height: 100px; width: auto; vertical-align: middle; }
         .nav-right { display: flex; align-items: center; gap: 3rem; }
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease; }
-        .nav-links a:hover, .nav-links a.active { color: #38bdf8; }
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #38bdf8; }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 4rem 5% 1rem;
+        }
+        .page-header h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: #f8fafc;
+        }
+        .page-header p {
+            color: #94a3b8;
+            font-size: 1.15rem;
+            margin-top: 1rem;
+        }
+
+        /* Top Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .grid-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* The preview image box */
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #0f172a;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            font-size: 3rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
         
-        .coming-soon-container { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 5%; }
-        .coming-soon-container h1 { font-size: 3.5rem; font-weight: 800; color: #f8fafc; margin-bottom: 1rem; }
-        .coming-soon-container p { font-size: 1.25rem; color: #94a3b8; max-width: 600px; margin-bottom: 2rem; }
-        
-        .teaser-card { background-color: #1e293b; padding: 2rem; border-radius: 12px; border: 1px solid #334155; border-left: 4px solid #38bdf8; max-width: 500px; text-align: left; }
-        .teaser-card h3 { color: #f8fafc; margin-bottom: 0.5rem; }
-        .teaser-card p { font-size: 1rem; margin-bottom: 0; }
-        
-        @media (max-width: 768px) { .nav-links { display: none; } .coming-soon-container h1 { font-size: 2.5rem; } }
+        .card-content h3 {
+            color: #38bdf8;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Detailed Project Containers (What it scrolls down to) */
+        .project-container {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 0 auto 5rem;
+            max-width: 1200px;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+            /* Gives a little breathing room when scrolling down to the anchor */
+            scroll-margin-top: 2rem; 
+        }
+
+        .project-header { margin-bottom: 2rem; }
+        .project-header h2 { color: #f8fafc; font-size: 2.25rem; margin-bottom: 0.5rem; }
+        .project-header p { color: #38bdf8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Responsive iFrame */
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; 
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            background-color: #0f172a;
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+
+        /* Project Text Formatting */
+        .project-details { color: #cbd5e1; line-height: 1.7; }
+        .project-details h3 { color: #f8fafc; margin: 1.5rem 0 1rem; font-size: 1.35rem; }
+        .project-details p { margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .project-details ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+        .project-details li { position: relative; padding-left: 1.75rem; font-size: 1.05rem; }
+        .project-details li::before { content: "▹"; position: absolute; left: 0; top: -2px; font-size: 1.5rem; color: #38bdf8; font-weight: bold; }
+        .project-details li strong { color: #f8fafc; }
     </style>
 </head>
 <body>
-<style>
-    /* Project Card Container */
-    .project-container {
-        background-color: #1e293b;
-        border: 1px solid #334155;
-        border-radius: 12px;
-        padding: 2.5rem;
-        margin: 3rem auto;
-        max-width: 1200px;
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
-    }
 
-    .project-header {
-        margin-bottom: 2rem;
-    }
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="DataByElijah Logo">
+        </a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="services.html">Services</a>
+                <a href="dashboards.html">Dashboards</a>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-    .project-header h2 {
-        color: #f8fafc;
-        font-size: 2.25rem;
-        margin-bottom: 0.5rem;
-        font-weight: 800;
-    }
+    <!-- Header -->
+    <header class="page-header">
+        <h1>Featured Projects & Dashboards</h1>
+        <p>Select a project below to jump straight to the technical breakdown and interactive report.</p>
+    </header>
 
-    .project-header p {
-        color: #38bdf8;
-        font-weight: 600;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
+    <!-- The Top Link Grid -->
+    <section class="portfolio-grid">
+        <!-- Card 1 -->
+        <!-- The href="#cfpb-project" tells the browser to scroll to the element with id="cfpb-project" -->
+        <a href="#cfpb-project" class="grid-card">
+            <!-- You can replace the emoji box below with an <img src="..."> tag later! -->
+            <div class="card-image">📊</div>
+            <div class="card-content">
+                <h3>CFPB Complaint Analysis</h3>
+                <p>Interactive Power BI dashboard tracking 8.3M+ financial complaints.</p>
+            </div>
+        </a>
 
-    /* Responsive iFrame Wrapper (16:9 Aspect Ratio) */
-    .iframe-wrapper {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; 
-        margin-bottom: 2.5rem;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #334155;
-        background-color: #0f172a; /* Shows while loading */
-    }
+        <!-- Card 2 -->
+        <a href="#inventory-project" class="grid-card">
+            <div class="card-image">🐍</div>
+            <div class="card-content">
+                <h3>Computer Vision Automation</h3>
+                <p>A Python pipeline utilizing the Gemini API for raw photo processing.</p>
+            </div>
+        </a>
 
-    .iframe-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
+        <!-- Card 3 -->
+        <a href="#contact-center-project" class="grid-card">
+            <div class="card-image">⚙️</div>
+            <div class="card-content">
+                <h3>Contact Center Data Pipeline</h3>
+                <p>Automated ELT pipeline driving $650K+ in annual workflow savings.</p>
+            </div>
+        </a>
 
-    /* Description Typography */
-    .project-details {
-        color: #cbd5e1;
-        line-height: 1.7;
-    }
+        <!-- Card 4 -->
+        <a href="#returns-project" class="grid-card">
+            <div class="card-image">📉</div>
+            <div class="card-content">
+                <h3>E-Commerce Return Mitigation</h3>
+                <p>Strategic data modeling to uncover root causes and reduce return rates.</p>
+            </div>
+        </a>
+    </section>
 
-    .project-details h3 {
-        color: #f8fafc;
-        margin-bottom: 1rem;
-        margin-top: 1.5rem;
-        font-size: 1.35rem;
-        font-weight: 700;
-    }
-    
-    .project-details p {
-        margin-bottom: 1.5rem;
-        font-size: 1.05rem;
-    }
+    <!-- ========================================== -->
+    <!-- DETAILED PROJECT SECTIONS DOWN THE PAGE    -->
+    <!-- ========================================== -->
 
-    .project-details ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+    <!-- PROJECT 1 (Notice the id="cfpb-project" matches the anchor link above) -->
+    <div class="project-container" id="cfpb-project">
+        <div class="project-header">
+            <h2>CFPB Consumer Complaint Analysis</h2>
+            <p>Interactive Power BI Dashboard</p>
+        </div>
 
-    .project-details li {
-        position: relative;
-        padding-left: 1.75rem;
-        font-size: 1.05rem;
-    }
+        <div class="iframe-wrapper">
+            <iframe title="CFPB Complaint Analysis" src="https://app.powerbi.com/view?r=eyJrIjoiMWU3YTQ3OTEtYjdhMS00YTk1LTk3ZjktY2E1YTFkOWI5ZTdkIiwidCI6IjBhZDIxYzgxLTY2M2EtNGUzMy04ZDk3LTBlOWZmYTU0ZmE3YiJ9&pageName=7288f56003b0302d5a5b" allowFullScreen="true"></iframe>
+        </div>
 
-    .project-details li::before {
-        content: "▹";
-        position: absolute;
-        left: 0;
-        top: -2px;
-        font-size: 1.5rem;
-        color: #38bdf8;
-        font-weight: bold;
-    }
-
-    .project-details li strong {
-        color: #f8fafc;
-    }
-</style>
-
-<div class="project-container">
-    <div class="project-header">
-        <h2>CFPB Consumer Complaint Analysis</h2>
+        <div class="project-details">
+            <h3>Project Overview</h3>
+            <p>This dashboard provides a comprehensive visual analysis of over <strong>8.3 million consumer complaints</strong> filed with the Consumer Financial Protection Bureau (CFPB) between January 2025 and July 2026. By structuring and visualizing this massive dataset, the report identifies systemic issues, geographic pain points, and company-specific trends within the financial sector.</p>
+            
+            <h3>Key Insights Discovered</h3>
+            <ul>
+                <li><strong>Credit Bureaus Dominate the Data:</strong> The vast majority of consumer grievances are directed at the "Big Three" credit reporting agencies. TransUnion, Equifax, and Experian account for over 7.1 million of the total complaints analyzed.</li>
+                <li><strong>Root Cause Identification:</strong> Utilizing decomposition tree analysis, the data reveals that "Credit reporting" is the primary product of concern. Drilling down further, "Incorrect information" acts as the leading sub-issue, driving over 4.3 million specific complaints.</li>
+                <li><strong>Volume Trends & Geography:</strong> The 3-month rolling average highlights a steady, continuous upward trend in complaint volume from early 2025 through mid-2026. Additionally, geospatial tracking maps out regional densities of delayed company responses (taking over 3 days).</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- The dashboard will now automatically scale perfectly -->
-    <div class="iframe-wrapper">
-        <iframe title="CFPB Complaint Analysis" src="https://app.powerbi.com/view?r=eyJrIjoiMWU3YTQ3OTEtYjdhMS00YTk1LTk3ZjktY2E1YTFkOWI5ZTdkIiwidCI6IjBhZDIxYzgxLTY2M2EtNGUzMy04ZDk3LTBlOWZmYTU0ZmE3YiJ9&pageName=7288f56003b0302d5a5b" allowFullScreen="true"></iframe>
+    <!-- PROJECT 2 -->
+    <div class="project-container" id="inventory-project">
+        <div class="project-header">
+            <h2>Computer Vision Inventory Automation</h2>
+            <p>Python & Gemini API Data Pipeline</p>
+        </div>
+        <div class="project-details">
+            <h3>Project Overview</h3>
+            <p>Project Coming Soon</p>
+            <!-- You can add an iframe or image placeholder here later! -->
+        </div>
     </div>
 
-    <!-- Data narrative pulled from your screenshot -->
-    <div class="project-details">
-        <h3>Project Overview</h3>
-        <p>This dashboard provides a comprehensive visual analysis of over <strong>8.3 million consumer complaints</strong> filed with the Consumer Financial Protection Bureau (CFPB) between January 2025 and July 2026. By structuring and visualizing this massive dataset, the report identifies systemic issues, geographic pain points, and company-specific trends within the financial sector.</p>
-        
-        <h3>Key Insights Discovered</h3>
-        <ul>
-            <li><strong>Credit Bureaus Dominate the Data:</strong> The vast majority of consumer grievances are directed at the "Big Three" credit reporting agencies. TransUnion, Equifax, and Experian account for over 7.1 million of the total complaints analyzed.</li>
-            <li><strong>Root Cause Identification:</strong> Utilizing decomposition tree analysis, the data reveals that "Credit reporting" is the primary product of concern. Drilling down further, "Incorrect information" acts as the leading sub-issue, driving over 4.3 million specific complaints.</li>
-            <li><strong>Volume Trends & Geography:</strong> The 3-month rolling average highlights a steady, continuous upward trend in complaint volume from early 2025 through mid-2026. Additionally, geospatial tracking maps out regional densities of delayed company responses (taking over 3 days).</li>
-        </ul>
+    <!-- PROJECT 3 -->
+    <div class="project-container" id="contact-center-project">
+        <div class="project-header">
+            <h2>Contact Center Data Pipeline</h2>
+            <p>Enterprise ELT Architecture</p>
+        </div>
+        <div class="project-details">
+            <h3>Project Overview</h3>
+            <p>Project Coming Soon</p>
+        </div>
     </div>
-</div>
+
+    <!-- PROJECT 4 -->
+    <div class="project-container" id="returns-project">
+        <div class="project-header">
+            <h2>E-Commerce Return Mitigation</h2>
+            <p>Data Modeling & Analytics</p>
+        </div>
+        <div class="project-details">
+            <h3>Project Overview</h3>
+            <p>Project Coming Soon</p>
+        </div>
+    </div>
+
 </body>
 </html>
