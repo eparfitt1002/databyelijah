@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Elijah, a freelance Data expert specializing in Power BI development, interactive dashboards, data modeling, and business intelligence solutions.">
+    <title>DataByElijah | Power BI Dashboards & Data Engineering</title>
+
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Color Palette & Global Styles */
+        body {
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            line-height: 1.5;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%; 
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100px; 
+            width: auto;
+            vertical-align: middle;
+        }
+
+        /* Right side of Nav (Links + Socials) */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+            border-left: 1px solid #334155; /* Subtle divider */
+            padding-left: 1.5rem;
+        }
+
+        .social-icons a {
+            color: #cbd5e1;
+            display: flex;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #38bdf8;
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        .social-icons svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor; /* Inherits the color from the <a> tag for hover effects */
+        }
+
+/* Services Section */
+        .services-section {
+            padding: 5rem 5%;
+            background-color: #0f172a;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f8fafc;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #94a3b8;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #1e293b;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #f8fafc;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hero Section - Asymmetrical Layout */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 5rem 5%; 
+            min-height: 75vh; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 2; 
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem; 
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero > p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        /* Enterprise Results Bullet List */
+        .achievements-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .achievements-list li {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            position: relative;
+            padding-left: 2rem;
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.5rem;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .achievements-list strong {
+            color: #f8fafc;
+            font-weight: 700;
+        }
+
+        /* Hero Sidebar (Image + Buttons) */
+        .hero-sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; 
+            gap: 2rem;
+            max-width: 300px;
+        }
+
+        .hero-image-small {
+            width: 100%;
+            max-width: 220px; 
+            aspect-ratio: 1 / 1; 
+            object-fit: cover; 
+            border-radius: 16px; 
+            border: 2px solid #1e293b;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Call to Action Buttons */
+        .cta-buttons-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 220px; 
+        }
+
+        .btn {
+            padding: 0.875rem 1rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: 2px solid #38bdf8;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #38bdf8;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #f8fafc;
+            border: 2px solid #475569;
+        }
+
+        .btn-secondary:hover {
+            border-color: #cbd5e1;
+            color: #ffffff;
+        }
+
+        /* Tech Stack / Footer Bar Section */
+        .tech-stack {
+            padding: 1.5rem 5%;
+            background-color: #ffffff;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .tech-stack p {
+            color: #475569;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-grid img {
+            height: 36px;
+            max-width: 140px;
+            object-fit: contain;
+            opacity: 0.85;
+            transition: all 0.3s ease;
+            border-radius: 4px; 
+        }
+
+        .logo-grid img:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column; 
+                align-items: center;
+                text-align: left;
+                padding-top: 2rem;
+                min-height: auto; 
+                gap: 2.5rem;
+            }
+
+            .hero-sidebar {
+                align-items: center;
+                width: 100%;
+                max-width: none;
+                flex-direction: column-reverse; 
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+                text-align: center;
+            }
+            
+            .hero > p {
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none; /* Hides text links on mobile */
+            }
+            
+            .social-icons {
+                border-left: none; /* Removes divider on mobile */
+                padding-left: 0;
+            }
+
+            .cta-buttons-vertical {
+                max-width: 300px;
+            }
+
+            .logo-grid {
+                gap: 1.5rem;
+            }
+            
+            .logo img {
+                height: 65px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="DataByElijah Logo">
+        </a>
+        
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#portfolio">Dashboards</a>
+                <a href="#insights">Insights</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/elijah-parfitt-730082184/" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <!-- YouTube -->
+                <a href="#" target="_blank" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.188 0 12 0 12s0 3.812.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.812 24 12 24 12s0-3.812-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/eparfitt1002" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <!-- Left Side: Text Content & Enterprise ROI -->
+        <div class="hero-content">
+            <h1>Transforming Complex Data into <span>Clear Business Decisions</span></h1>
+            <p>Enterprise-grade data engineering and analytics driving measurable business impact.<br><br></p>
+            
+            <ul class="achievements-list">
+                <li><strong>$650K+ Annual Savings:</strong> Automated contact center performance data pipelines, eliminating manual workflows and massive production costs.</li>
+                <li><strong>$100K+ Return Mitigation:</strong> Engineered data models to uncover hidden insights, driving strategic changes that directly reduced annual return rates.</li>
+                <li><strong>80% Faster Reporting:</strong> Optimized foundational reporting data layers to drastically cut Power BI dashboard refresh times.</li>
+            </ul>
+        </div>
+
+        <!-- Right Side: Sidebar (Profile Image + CTAs) -->
+        <div class="hero-sidebar">
+            <img src="portfolio_photo.jpg" alt="Elijah - Power BI and Data Engineering Expert" class="hero-image-small">
+            
+            <div class="cta-buttons-vertical">
+                <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+                <a href="#portfolio" class="btn btn-secondary">View My Dashboards</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tech Stack / Logos Bar -->
+    <section class="tech-stack">
+        <p>Expertise in Modern Data Platforms</p>
+        <div class="logo-grid">
+            <img src="power_bi_logo.jpg" alt="Power BI">
+            <img src="fabric_logo.webp" alt="Microsoft Fabric">
+            <img src="Databricks_Logo.png" alt="Databricks">
+            <img src="postgresSQL_logo.jpg" alt="PostgreSQL">
+        </div>
+    </section>
+<!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>Comprehensive Data Services</h2>
+            <p>From foundational data architecture to advanced AI automation, I build end-to-end solutions that turn raw data into scalable business value.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Business Intelligence & Dashboards</h3>
+                <p>Transform complex, siloed datasets into interactive Power BI dashboards. I specialize in optimizing reporting data layers to cut refresh times and deliver actionable performance metrics directly to stakeholders.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Data Engineering & Pipelines</h3>
+                <p>Architect robust ETL and ELT pipelines using industry-standard platforms like Databricks, Microsoft Fabric, and PostgreSQL. I ensure your data is clean, centralized, and ready for advanced analytics.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">🐍</div>
+                <h3>Python Workflow Automation</h3>
+                <p>Eliminate manual data entry and repetitive administrative tasks. I develop bespoke Python scripts and API integrations that seamlessly connect your disparate software systems and automate your daily workflows.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Applied AI & LLM Integration</h3>
+                <p>Leverage cutting-edge AI to process unstructured information. I build custom programmatic pipelines that utilize Large Language Model APIs to automatically categorize data, analyze raw images, and generate structured textual outputs.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
