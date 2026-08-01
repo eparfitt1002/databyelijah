@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View Power BI dashboards, data architecture projects, and Python automations by Elijah.">
+    <title>Dashboards | DataByElijah</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 5%; background-color: rgba(15, 23, 42, 0.95); border-bottom: 1px solid #1e293b; }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 100px; width: auto; vertical-align: middle; }
+        .nav-right { display: flex; align-items: center; gap: 3rem; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease; }
+        .nav-links a:hover, .nav-links a.active { color: #38bdf8; }
+        
+        .coming-soon-container { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 5%; }
+        .coming-soon-container h1 { font-size: 3.5rem; font-weight: 800; color: #f8fafc; margin-bottom: 1rem; }
+        .coming-soon-container p { font-size: 1.25rem; color: #94a3b8; max-width: 600px; margin-bottom: 2rem; }
+        
+        .teaser-card { background-color: #1e293b; padding: 2rem; border-radius: 12px; border: 1px solid #334155; border-left: 4px solid #38bdf8; max-width: 500px; text-align: left; }
+        .teaser-card h3 { color: #f8fafc; margin-bottom: 0.5rem; }
+        .teaser-card p { font-size: 1rem; margin-bottom: 0; }
+        
+        @media (max-width: 768px) { .nav-links { display: none; } .coming-soon-container h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo"><img src="logo.png" alt="DataByElijah Logo"></a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="dashboards.html" class="active">Dashboards</a>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="coming-soon-container">
+        <h1>Dashboards & Projects</h1>
+        <p>I am currently finalizing the interactive case studies for this section.</p>
+        
+        <div class="teaser-card">
+            <h3>Coming Up First:</h3>
+            <p>A deep dive into a custom Python pipeline that leverages the Gemini API to automatically process raw bucket photos into structured inventory drafts.</p>
+        </div>
+    </main>
+
+</body>
+</html>
