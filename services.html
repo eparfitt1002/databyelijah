@@ -209,7 +209,26 @@
             .service-visual {
                 margin-bottom: 1rem;
             }
+            .service-visual {
+            flex: 1;
+            max-width: 120px;
+            background-color: #0f172a;
+            border-radius: 12px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            border: 1px solid #334155;
+            color: #38bdf8;
+        }
 
+        /* Add this new block right below */
+        .service-visual img {
+            height: 64px;
+            width: 64px;
+            object-fit: contain;
+        }
             .deliverables-list li {
                 text-align: left; /* Keep bullets left-aligned even on mobile */
             }
