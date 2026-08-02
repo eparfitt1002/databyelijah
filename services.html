@@ -110,6 +110,13 @@
             color: #38bdf8;
         }
 
+        /* Add this new block right below */
+        .service-visual img {
+            height: 64px;
+            width: 64px;
+            object-fit: contain;
+        }
+
         /* Service Text Content */
         .service-content {
             flex: 3;
@@ -264,10 +271,9 @@
 
     <!-- Main Services -->
     <main class="services-container">
-        
-        <!-- Service 1: Business Intelligence -->
+    <!-- Service 1: Business Intelligence -->
         <section class="service-row">
-            <div class="service-visual">📊</div>
+            <div class="service-visual"><img src="bar_graph_icon.png" alt="Business Intelligence Icon"></div>
             <div class="service-content">
                 <h2>Business Intelligence & Dashboards</h2>
                 <p>Data is only as valuable as the decisions it drives. I specialize in designing high-performance, interactive Power BI dashboards that transform complex, siloed datasets into clear, actionable executive insights. From strategic return mitigation models to operational metrics, your data will tell a story.</p>
@@ -282,7 +288,7 @@
 
         <!-- Service 2: Data Engineering -->
         <section class="service-row">
-            <div class="service-visual">⚙️</div>
+            <div class="service-visual"><img src="pipeline_icon.png" alt="Data Engineering Icon"></div>
             <div class="service-content">
                 <h2>Data Engineering & Architecture</h2>
                 <p>Solid analytics require a solid foundation. I architect robust ETL and ELT pipelines utilizing modern enterprise tools like Databricks, Microsoft Fabric, and PostgreSQL. I ensure your raw data is securely extracted, aggressively cleaned, and centralized for advanced downstream analytics.</p>
@@ -297,7 +303,7 @@
 
         <!-- Service 3: Python Automation -->
         <section class="service-row">
-            <div class="service-visual">🐍</div>
+            <div class="service-visual"><img src="python_icon.png" alt="Python Icon"></div>
             <div class="service-content">
                 <h2>Python Workflow Automation</h2>
                 <p>Stop paying for repetitive administrative tasks. I write bespoke Python scripts that seamlessly connect your disparate software systems. Whether it is scraping essential metrics, migrating datasets, or scheduling automated alert systems, I build code that gives you your time back.</p>
@@ -312,7 +318,7 @@
 
         <!-- Service 4: Applied AI -->
         <section class="service-row">
-            <div class="service-visual">🧠</div>
+            <div class="service-visual"><img src="ai_icon.webp" alt="Applied AI Icon"></div>
             <div class="service-content">
                 <h2>Applied AI & LLM Integration</h2>
                 <p>Leverage cutting-edge artificial intelligence to process the data a traditional database cannot. By building programmatic pipelines integrated with the Gemini API, I can help your business automatically categorize unstructured textual outputs, analyze raw images, and draft rich operational content.</p>
