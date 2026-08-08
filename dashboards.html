@@ -345,21 +345,21 @@
     <!-- The Top Link Grid -->
     <section class="portfolio-grid">
         <!-- Card 1 -->
+        <a href="#inventory-project" class="grid-card">
+            <div class="card-image"><span>📦</span></div>
+            <div class="card-content">
+                <h3>RarezWarez AI Inventory Pipeline</h3>
+                <p>Serverless GCP + Gemini AI pipeline turning raw photos into structured eBay listings.</p>
+            </div>
+        </a>
+
+        <!-- Card 2 -->
         <!-- The href="#cfpb-project" tells the browser to scroll to the element with id="cfpb-project" -->
         <a href="#cfpb-project" class="grid-card">
             <div class="card-image"><img src="cfpd_dash.jpg" alt="CFPB Complaint Analysis dashboard preview"></div>
             <div class="card-content">
                 <h3>CFPB Complaint Analysis</h3>
                 <p>Interactive Power BI dashboard tracking 8.3M+ financial complaints.</p>
-            </div>
-        </a>
-
-        <!-- Card 2 -->
-        <a href="#inventory-project" class="grid-card">
-            <div class="card-image"><span>🐍</span></div>
-            <div class="card-content">
-                <h3>Computer Vision Automation</h3>
-                <p>A Python pipeline utilizing the Gemini API for raw photo processing.</p>
             </div>
         </a>
 
@@ -378,7 +378,40 @@
     <!-- DETAILED PROJECT SECTIONS DOWN THE PAGE    -->
     <!-- ========================================== -->
 
-    <!-- PROJECT 1 (Notice the id="cfpb-project" matches the anchor link above) -->
+    <!-- PROJECT 1 -->
+    <div class="project-container" id="inventory-project">
+        <div class="project-header">
+            <h2>RarezWarez AI Inventory Pipeline</h2>
+            <p>Serverless Data Engineering & Applied AI</p>
+        </div>
+        <div class="project-details">
+            <div class="tech-badges">
+                <span class="tech-badge">Google Cloud Run</span>
+                <span class="tech-badge"><img src="python_icon.png" alt="Python">Python</span>
+                <span class="tech-badge"><img src="ai_icon.webp" alt="Gemini API">Gemini AI</span>
+                <span class="tech-badge"><img src="Databricks_Logo.png" alt="Databricks">Databricks</span>
+                <span class="tech-badge">Streamlit</span>
+                <span class="tech-badge"><img src="power_bi_logo.jpg" alt="Power BI">Power BI</span>
+            </div>
+
+            <h3>Project Overview</h3>
+            <p>An end-to-end e-commerce data pipeline that turns raw, unsorted product photography into ready-to-list eBay inventory — no manual data entry involved. Photos are batched, segmented, and sent through a serverless AI service that writes the SEO title, condition, description, and pricing for every item automatically.</p>
+
+            <h3>Behind the Pipeline</h3>
+            <p>Photos sync to a Google Cloud Storage bucket and are picked up every minute by a Python service running on Google Cloud Run. Items are separated automatically by detecting a "blackout" divider photo — the lens covered by hand between items — using image-brightness detection. Each item's photos are sent to the Gemini API, which returns a structured listing (title, condition, description, and estimated value/shipping) as clean JSON. The finished listings are then loaded into a Databricks SQL warehouse, managed day-to-day through a custom Streamlit terminal, and tracked in Power BI to compare AI-estimated pricing against what items actually sell for.</p>
+
+            <h3>Key Highlights</h3>
+            <ul>
+                <li><strong>Physical Segmentation, No Manual Sorting:</strong> A single blackout photo — lens covered by hand — is enough to split a 200+ photo batch into individual items, with no folder organizing or manual tagging required.</li>
+                <li><strong>AI-Generated Listings:</strong> The Gemini API reads each item's photos and produces a ready-to-post eBay listing (title, condition, description, pricing) in one structured pass.</li>
+                <li><strong>Closed-Loop Analytics:</strong> Power BI compares the AI's estimated value against the actual sold price, turning every completed sale into feedback on how well the model is pricing inventory.</li>
+            </ul>
+
+            <a href="computer-vision-analysis.html" class="btn-case-study">Read the Full Case Study →</a>
+        </div>
+    </div>
+
+    <!-- PROJECT 2 (Notice the id="cfpb-project" matches the anchor link above) -->
     <div class="project-container" id="cfpb-project">
         <div class="project-header">
             <h2>CFPB Consumer Complaint Analysis</h2>
@@ -410,26 +443,6 @@
             </ul>
 
             <a href="cfpb-analysis.html" class="btn-case-study">Read the Full Case Study →</a>
-        </div>
-    </div>
-
-    <!-- PROJECT 2 -->
-    <div class="project-container" id="inventory-project">
-        <div class="project-header">
-            <h2>Computer Vision Inventory Automation</h2>
-            <p>Python & Gemini API Data Pipeline</p>
-        </div>
-        <div class="project-details">
-            <div class="tech-badges">
-                <span class="tech-badge"><img src="python_icon.png" alt="Python">Python</span>
-                <span class="tech-badge"><img src="ai_icon.webp" alt="Gemini API">Gemini API</span>
-            </div>
-
-            <h3>Project Overview</h3>
-            <p>A Python pipeline that uses the Gemini API to process raw inventory photos into structured, usable data — cutting out manual data entry. Full write-up coming soon.</p>
-            <!-- You can add an iframe or image placeholder here later! -->
-
-            <a href="computer-vision-analysis.html" class="btn-case-study">Read the Full Case Study →</a>
         </div>
     </div>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataByElijah | Computer Vision Automation — Case Study</title>
+    <title>DataByElijah | RarezWarez AI Inventory Pipeline — Case Study</title>
 
     <style>
         * {
@@ -123,6 +123,22 @@
         }
         .callout strong { color: #38bdf8; }
 
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .stat-box {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-box .num { font-size: 2rem; font-weight: 800; color: #38bdf8; }
+        .stat-box .label { color: #94a3b8; font-size: 0.85rem; margin-top: 0.25rem; }
+
         /* Process Timeline */
         .process-timeline {
             display: flex;
@@ -200,52 +216,81 @@
     <!-- Header -->
     <header class="case-header">
         <a href="dashboards.html#inventory-project" class="back-link">← Back to Dashboards</a>
-        <p class="eyebrow">Case Study — In Progress</p>
-        <h1>Computer Vision Inventory Automation</h1>
-        <p class="subtitle">A Python pipeline that pairs with Google's Gemini API to turn raw inventory photos into structured, usable data — replacing manual data entry.</p>
+        <p class="eyebrow">Case Study</p>
+        <h1>RarezWarez AI Inventory Pipeline</h1>
+        <p class="subtitle">A serverless Google Cloud pipeline that turns raw product photography into ready-to-list eBay inventory — automatically segmented, priced, and described by Gemini AI.</p>
         <div class="tech-badges">
-            <span class="tech-badge"><img src="python_icon.png" alt="Python">Python</span>
-            <span class="tech-badge"><img src="ai_icon.webp" alt="Gemini API">Gemini API</span>
+            <span class="tech-badge">Google Cloud Run</span>
+            <span class="tech-badge">Cloud Scheduler</span>
+            <span class="tech-badge"><img src="python_icon.png" alt="Python">Python / Flask</span>
+            <span class="tech-badge"><img src="ai_icon.webp" alt="Gemini API">Gemini AI</span>
+            <span class="tech-badge"><img src="Databricks_Logo.png" alt="Databricks">Databricks</span>
+            <span class="tech-badge">Streamlit</span>
+            <span class="tech-badge"><img src="power_bi_logo.jpg" alt="Power BI">Power BI</span>
         </div>
     </header>
 
     <main class="case-content">
 
-        <p class="callout"><strong>Note:</strong> This project is still being documented. Below is an early look at the problem and approach — a full breakdown with results is coming soon.</p>
-
         <h2>The Problem</h2>
-        <p>Manually logging inventory from photos — reading labels, counting items, entering details into a spreadsheet — is slow and error-prone. The goal of this project is to remove that manual step entirely by letting a vision-capable AI model read the photos directly.</p>
+        <p>Listing secondhand inventory on eBay is repetitive, manual work: sorting hundreds of product photos, writing an accurate title and description for each item, estimating a fair price, and tracking every listing through to sale. This pipeline was built to remove that manual step almost entirely — turning a folder of raw photos into structured, ready-to-post listings with no data entry required.</p>
+
+        <div class="stat-row">
+            <div class="stat-box"><div class="num">200+</div><div class="label">Photos per Batch</div></div>
+            <div class="stat-box"><div class="num">1 min</div><div class="label">Scheduler Trigger Interval</div></div>
+            <div class="stat-box"><div class="num">900s</div><div class="label">Cloud Run Timeout</div></div>
+        </div>
 
         <h2>How the Pipeline Works</h2>
+        <p>Every stage of this pipeline runs without manual intervention, from the moment a photo batch hits cloud storage to the moment a Power BI report reflects the sale.</p>
+
         <div class="process-timeline">
             <div class="process-step">
                 <div class="step-num">1</div>
                 <div>
-                    <h3>Capture</h3>
-                    <p>Raw, unstructured inventory photos are collected as the pipeline's input — no special formatting or manual pre-sorting required.</p>
+                    <h3>Extraction</h3>
+                    <p>Batches of up to 200+ raw product photos sync to a Google Cloud Storage bucket. Individual items are separated during photography with a simple "blackout" photo — the lens covered by hand between items. A Cloud Scheduler job triggers a processing run every minute.</p>
                 </div>
             </div>
             <div class="process-step">
                 <div class="step-num">2</div>
                 <div>
-                    <h3>Interpret</h3>
-                    <p>Each photo is sent to the Gemini API, which reads the image and extracts the relevant details — item identity, quantity, and condition — as structured output.</p>
+                    <h3>Sorting &amp; Segmentation</h3>
+                    <p>A Python Flask app on Cloud Run sorts files strictly by numerical timestamp, bypassing naming quirks like camera "Night Mode" prefixes that would break a naive alphabetical sort. It then scans for the blackout divider photos — flagging any frame with average brightness below a set threshold — to slice the batch into individual items.</p>
                 </div>
             </div>
             <div class="process-step">
                 <div class="step-num">3</div>
                 <div>
-                    <h3>Structure &amp; Store</h3>
-                    <p>A Python layer validates and formats the model's output into clean, tabular records ready for downstream use — no manual data entry involved.</p>
+                    <h3>AI Analysis &amp; Image Processing</h3>
+                    <p>Up to 4 photos per item are sent to the Gemini API with instructions to return a strict JSON payload: SEO title (including exact part numbers or sizes), condition, description, estimated value, and estimated shipping. In parallel, the <code>rembg</code> library strips the background from the primary photo.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <div>
+                    <h3>Loading &amp; Warehousing</h3>
+                    <p>Processed images and listing JSON are zipped and pushed to an output bucket, then loaded into a Databricks SQL warehouse under a single wide <code>ebay.inventory_tracker</code> table — including sale-tracking fields like <code>is_sold</code>, <code>sold_price</code>, and <code>sold_at</code>.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">5</div>
+                <div>
+                    <h3>Tooling &amp; Business Intelligence</h3>
+                    <p>A Streamlit CRUD app serves as the warehouse terminal for marking items sold and recording final sale prices. Power BI connects directly to Databricks to track inventory velocity (days from staging to sale) and compare the AI's estimated value against actual market performance.</p>
                 </div>
             </div>
         </div>
 
+        <p class="callout"><strong>Engineering safeguards:</strong> Cloud Run is provisioned with 2GiB of memory and deployed behind Gunicorn with an explicit 900-second (15-minute) timeout — tuned specifically so a 200+ photo batch can finish processing without the server dropping the connection mid-run.</p>
+
         <h2>What This Demonstrates</h2>
         <ul>
-            <li><strong>Applied AI Integration:</strong> Using a large language model's vision capabilities as a production data-entry replacement, not just a chat interface.</li>
-            <li><strong>Prompt Engineering:</strong> Structuring requests to the Gemini API so responses come back in a consistent, machine-readable format.</li>
-            <li><strong>Python Pipeline Development:</strong> Automating the full path from raw image to structured record.</li>
+            <li><strong>Serverless Architecture Design:</strong> Google Cloud Storage, Cloud Run, and Cloud Scheduler working together as an event-driven, self-triggering pipeline with no servers to manage.</li>
+            <li><strong>Applied Computer Vision:</strong> Using image-brightness analysis to physically segment a photo stream into items — a low-tech capture technique paired with a precise processing rule.</li>
+            <li><strong>Prompt Engineering for Structured Output:</strong> Directing a multimodal LLM to return strict, schema-consistent JSON suitable for direct loading into a warehouse table.</li>
+            <li><strong>Cloud Data Warehousing:</strong> Designing a wide transactional Databricks SQL table that supports both operational updates (via Streamlit) and analytical queries (via Power BI).</li>
+            <li><strong>Full-Stack Internal Tooling:</strong> Building the Streamlit terminal that lets a non-technical operator manage inventory state without touching SQL directly.</li>
         </ul>
 
         <a href="dashboards.html#inventory-project" class="btn-primary">Back to Dashboards</a>

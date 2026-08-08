@@ -301,6 +301,78 @@
             color: #ffffff;
         }
 
+        /* Featured Project Spotlight */
+        .featured-project {
+            padding: 4.5rem 5%;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-top: 1px solid #1e293b;
+            border-bottom: 1px solid #1e293b;
+        }
+        .featured-project-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .featured-badge {
+            display: inline-block;
+            background-color: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1.25rem;
+        }
+        .featured-project h2 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .featured-project-inner > p {
+            color: #94a3b8;
+            font-size: 1.08rem;
+            margin-bottom: 1.75rem;
+        }
+        .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+        .featured-tags span {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+        }
+        .featured-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .featured-actions .btn {
+            display: inline-block;
+        }
+        .badge-soon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #94a3b8;
+            border: 2px dashed #334155;
+        }
+
         /* Tech Stack / Footer Bar Section */
         .tech-stack {
             padding: 1.5rem 5%;
@@ -471,6 +543,27 @@
             </div>
         </div>
     </header>
+
+    <!-- Featured Project Spotlight -->
+    <section class="featured-project">
+        <div class="featured-project-inner">
+            <span class="featured-badge">🚀 Featured Project</span>
+            <h2>RarezWarez AI Inventory Pipeline</h2>
+            <p>A serverless Google Cloud + Gemini AI pipeline that turns raw product photos into ready-to-list eBay inventory — automatically segmented, priced, and described with no manual data entry. Listings flow into a Databricks warehouse, with Power BI tracking how well the AI's pricing holds up against real sales.</p>
+            <div class="featured-tags">
+                <span>Google Cloud Run</span>
+                <span>Gemini AI</span>
+                <span>Databricks</span>
+                <span>Streamlit</span>
+                <span>Power BI</span>
+            </div>
+            <div class="featured-actions">
+                <a href="dashboards.html#inventory-project" class="btn btn-primary">See the Full Breakdown</a>
+                <span class="badge-soon">🎥 YouTube Walkthrough — Coming Soon</span>
+                <span class="badge-soon">📘 How-To Guide — Coming Soon</span>
+            </div>
+        </div>
+    </section>
 
     <!-- Tech Stack / Logos Bar -->
     <section class="tech-stack">
