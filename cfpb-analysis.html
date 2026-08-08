@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataByElijah | CFPB Complaint Analysis — Case Study</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 100px; width: auto; vertical-align: middle; }
+        .nav-right { display: flex; align-items: center; gap: 3rem; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #38bdf8; }
+
+        /* Case Study Header */
+        .case-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3.5rem 5% 1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        .case-header p.eyebrow {
+            color: #38bdf8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+        .case-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .case-header .subtitle {
+            color: #94a3b8;
+            font-size: 1.15rem;
+            max-width: 700px;
+        }
+
+        /* Tech Badges (matches dashboards.html) */
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 2rem 0 0;
+        }
+        .tech-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 999px;
+            padding: 0.5rem 1rem 0.5rem 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+        .tech-badge img { height: 20px; width: 20px; object-fit: contain; border-radius: 3px; }
+
+        /* Content Sections */
+        .case-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 5% 5rem;
+        }
+        .case-content h2 {
+            font-size: 1.6rem;
+            color: #f8fafc;
+            margin: 2.5rem 0 1rem;
+        }
+        .case-content h2:first-child { margin-top: 0; }
+        .case-content p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 1rem; }
+        .case-content strong { color: #f8fafc; }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .stat-box {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-box .num { font-size: 2rem; font-weight: 800; color: #38bdf8; }
+        .stat-box .label { color: #94a3b8; font-size: 0.85rem; margin-top: 0.25rem; }
+
+        /* Process Timeline */
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .process-step {
+            display: flex;
+            gap: 1.25rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        .process-step .step-num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #0f172a;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+        .process-step h3 { color: #f8fafc; font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .process-step p { margin-bottom: 0; color: #94a3b8; font-size: 0.98rem; }
+
+        .case-content ul { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem; }
+        .case-content li { position: relative; padding-left: 1.75rem; font-size: 1.02rem; color: #cbd5e1; }
+        .case-content li::before { content: "▹"; position: absolute; left: 0; top: -2px; font-size: 1.4rem; color: #38bdf8; font-weight: bold; }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #38bdf8;
+            margin-top: 1rem;
+        }
+        .btn-primary:hover { background-color: transparent; color: #38bdf8; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .case-header h1 { font-size: 2rem; }
+            .process-step { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="DataByElijah Logo">
+        </a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="services.html">Services</a>
+                <a href="dashboards.html">Dashboards</a>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="case-header">
+        <a href="dashboards.html#cfpb-project" class="back-link">← Back to Dashboards</a>
+        <p class="eyebrow">Case Study</p>
+        <h1>CFPB Consumer Complaint Analysis</h1>
+        <p class="subtitle">How a cloud-connected, auto-refreshing pipeline turns 8.3M+ raw complaint records into a live executive dashboard — with zero manual data handling.</p>
+        <div class="tech-badges">
+            <span class="tech-badge"><img src="Databricks_Logo.png" alt="Databricks">Databricks</span>
+            <span class="tech-badge"><img src="power_bi_logo.jpg" alt="Power BI">Power BI</span>
+            <span class="tech-badge"><img src="pipeline_icon.png" alt="Automated Pipeline">Scheduled API Refresh</span>
+        </div>
+    </header>
+
+    <main class="case-content">
+
+        <h2>The Problem</h2>
+        <p>The Consumer Financial Protection Bureau publishes millions of consumer complaint records, but a raw dataset of this size — over <strong>8.3 million rows</strong> spanning January 2025 through July 2026 — isn't something a business leader can read directly. Without a reporting layer, systemic issues like which companies generate the most complaints, or which regions see the slowest response times, stay buried in the data.</p>
+
+        <div class="stat-row">
+            <div class="stat-box"><div class="num">8.3M+</div><div class="label">Complaints Analyzed</div></div>
+            <div class="stat-box"><div class="num">7.1M+</div><div class="label">Tied to the "Big Three" Bureaus</div></div>
+            <div class="stat-box"><div class="num">4.3M+</div><div class="label">Linked to Incorrect Info</div></div>
+        </div>
+
+        <h2>How the Pipeline Works</h2>
+        <p>The defining feature of this project is that it's not a static report — it's a live system. Data flows from source to dashboard automatically, on a schedule, without anyone touching a spreadsheet.</p>
+
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>Scheduled Ingestion</h3>
+                    <p>A scheduled job calls the Databricks API to pull the latest complaint records directly from the cloud workspace — no manual exports or file transfers.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Transform &amp; Clean</h3>
+                    <p>Records are deduplicated, standardized, and structured into a reporting-ready model, isolating the fields that matter most for trend and root-cause analysis.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Load</h3>
+                    <p>Cleaned data lands in a reporting layer optimized for fast queries, so the dashboard stays responsive even at millions of rows.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <div>
+                    <h3>Publish to Power BI</h3>
+                    <p>Power BI connects directly to the refreshed dataset. Each cycle, the dashboard updates itself — leadership always sees current numbers, not a stale snapshot.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>What This Demonstrates</h2>
+        <ul>
+            <li><strong>Cloud Data Platform Integration:</strong> Connecting to and pulling from Databricks via API, rather than relying on manual file exports.</li>
+            <li><strong>Automation &amp; Scheduling:</strong> Building a refresh cycle that keeps a large-scale dataset current with no ongoing manual effort.</li>
+            <li><strong>Data Modeling at Scale:</strong> Structuring millions of records into a model that stays fast and query-ready inside Power BI.</li>
+            <li><strong>Executive Communication:</strong> Translating a massive raw dataset into a handful of decision-ready insights.</li>
+        </ul>
+
+        <h2>Key Findings</h2>
+        <ul>
+            <li><strong>Credit Bureaus Dominate the Data:</strong> TransUnion, Equifax, and Experian together account for over 7.1 million of the total complaints analyzed.</li>
+            <li><strong>Root Cause Identification:</strong> Decomposition tree analysis shows "Credit reporting" as the primary product of concern, with "Incorrect information" as the leading sub-issue at over 4.3 million complaints.</li>
+            <li><strong>Volume Trends &amp; Geography:</strong> A 3-month rolling average shows a steady upward trend in complaint volume from early 2025 through mid-2026, with geospatial tracking highlighting regions where company responses regularly exceed 3 days.</li>
+        </ul>
+
+        <a href="dashboards.html#cfpb-project" class="btn-primary">View the Live Dashboard</a>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #0f172a; border-top: 1px solid #1e293b; padding: 3rem 5%; text-align: center; margin-top: auto;">
+        <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            <a href="index.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Home</a>
+            <a href="services.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Services</a>
+            <a href="dashboards.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Dashboards</a>
+            <a href="insights.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Insights</a>
+            <a href="contact.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Contact</a>
+        </div>
+        <p style="color: #475569; font-size: 0.85rem;">&copy; 2026 DataByElijah. All rights reserved.</p>
+    </footer>
+</body>
+</html>
