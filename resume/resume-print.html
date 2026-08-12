@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Elijah Parfitt - Resume</title>
+<style>
+    @page { size: Letter; margin: 0.55in 0.65in; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+        color: #1e293b;
+        background: #ffffff;
+        font-size: 10.5pt;
+        line-height: 1.42;
+    }
+    .name { font-size: 22pt; font-weight: 700; color: #0f172a; letter-spacing: 0.01em; }
+    .title { font-size: 12pt; font-weight: 600; color: #0369a1; margin-top: 2px; margin-bottom: 6px; }
+    .contact-row { font-size: 9.5pt; color: #334155; margin-bottom: 2px; }
+    .contact-row a { color: #334155; text-decoration: none; }
+
+    h2 {
+        font-size: 11pt;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #0f172a;
+        border-bottom: 1.5px solid #0369a1;
+        padding-bottom: 2px;
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+    p { margin-bottom: 6px; }
+
+    .achievements {
+        display: flex;
+        gap: 18px;
+        margin-bottom: 4px;
+        font-size: 9.8pt;
+    }
+    .achievements .item { flex: 1; }
+    .achievements .num { font-weight: 700; color: #0369a1; font-size: 12pt; }
+    .achievements .label { color: #475569; }
+
+    .skills-table { width: 100%; border-collapse: collapse; }
+    .skills-table td { vertical-align: top; padding: 1.5px 0; font-size: 10pt; }
+    .skills-table td.label { width: 175px; font-weight: 700; color: #0f172a; }
+
+    .job-title { font-weight: 700; font-size: 10.5pt; color: #0f172a; }
+    .job-meta { font-size: 9.5pt; color: #475569; margin-bottom: 4px; }
+    ul { margin: 0 0 8px 18px; padding: 0; }
+    li { margin-bottom: 2px; }
+
+    .project-title { font-weight: 700; color: #0f172a; }
+    .project-tech { font-size: 9pt; color: #0369a1; font-style: italic; }
+    .project-block { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+    <div class="name">Elijah Parfitt</div>
+    <div class="title">Business Intelligence Developer &amp; Freelance Data Consultant</div>
+    <div class="contact-row">
+        elijah@databyelijah.com &nbsp;|&nbsp; databyelijah.com &nbsp;|&nbsp;
+        linkedin.com/in/databyelijah &nbsp;|&nbsp; github.com/eparfitt1002
+    </div>
+
+    <h2>Professional Summary</h2>
+    <p>Business Intelligence Developer with 5+ years of experience building enterprise Power BI reporting and automated data pipelines. Combines dashboard and DAX expertise with hands-on SQL, Python, and cloud data engineering (Databricks, Microsoft Fabric) to turn large, messy datasets into decision-ready analytics. Proven track record of measurable business impact — six-figure cost savings, 80% faster reporting, and data models spanning millions of rows. Seeking freelance and contract engagements in data analysis, dashboard development, and light data engineering.</p>
+
+    <div class="achievements">
+        <div class="item"><span class="num">$650K+</span><br><span class="label">Annual Savings Delivered</span></div>
+        <div class="item"><span class="num">$100K+</span><br><span class="label">Return Mitigation</span></div>
+        <div class="item"><span class="num">80%</span><br><span class="label">Faster Reporting</span></div>
+    </div>
+
+    <h2>Core Skills</h2>
+    <table class="skills-table">
+        <tr><td class="label">BI &amp; Visualization</td><td>Power BI, DAX, Power Query, Tableau, Executive KPI Reporting, Data Modeling (Star Schema)</td></tr>
+        <tr><td class="label">Data Engineering &amp; Cloud</td><td>Azure Databricks, Microsoft Fabric, Apache Spark, ETL/ELT Pipeline Design, Google Cloud Run, Cloud Scheduler, Cloud Storage, PostgreSQL</td></tr>
+        <tr><td class="label">Languages &amp; Automation</td><td>SQL, Python, Power Automate, Workflow Automation, API Integration</td></tr>
+        <tr><td class="label">Applied AI</td><td>Gemini API / LLM Integration, Prompt Engineering, Computer Vision &amp; Image Processing</td></tr>
+        <tr><td class="label">Platforms &amp; Tools</td><td>Excel, Salesforce, Streamlit, Docker, Flask, Google Sheets API</td></tr>
+    </table>
+
+    <h2>Professional Experience</h2>
+    <div class="job-title">Business Intelligence Developer — Gap Inc.</div>
+    <div class="job-meta">May 2021 – Present &nbsp;|&nbsp; Hybrid, United States</div>
+    <ul>
+        <li>Deliver high-volume data insights and reporting on customer experience for contact center leadership, translating complex, messy datasets into actionable business recommendations.</li>
+        <li>Design and build Power BI dashboards and reports using DAX, Power Query, and star-schema data modeling, engineered to run efficiently across multi-million-row datasets.</li>
+        <li>Write and optimize complex SQL queries across Azure Databricks and Microsoft Fabric environments to support enterprise-scale reporting and analytics.</li>
+        <li>Automate recurring reporting workflows with Power Automate and Python, reducing manual effort and improving data reliability.</li>
+        <li>Partner cross-functionally with Client Experience leadership to identify KPIs, analyze trends, and deliver strategic, data-driven recommendations that improved customer service operations.</li>
+    </ul>
+
+    <h2>Selected Projects</h2>
+    <div class="project-block">
+        <div class="project-title">CFPB Consumer Complaint Analysis <span class="project-tech">— Databricks, Power BI</span></div>
+        <p>Automated Databricks-to-Power BI pipeline analyzing 8.3M+ consumer complaint records, with scheduled API-based ingestion, root-cause decomposition analysis, and geospatial mapping of company response times.</p>
+    </div>
+    <div class="project-block">
+        <div class="project-title">Contact Center SLA Performance Dashboard <span class="project-tech">— Python, Power BI</span></div>
+        <p>Hand-built Python ELT pipeline and Power BI dashboard processing 52,000+ calls end-to-end with no managed cloud platform. Identified the drivers behind 92% SLA compliance, informing $650K+ in annual workflow savings.</p>
+    </div>
+    <div class="project-block">
+        <div class="project-title">RarezWarez AI Inventory Pipeline <span class="project-tech">— GCP, Gemini AI, Databricks</span></div>
+        <p>Serverless GCP pipeline (Cloud Run, Cloud Scheduler, Cloud Storage) using Gemini AI computer vision to auto-generate structured e-commerce listings from raw product photos, feeding a Databricks warehouse and Power BI reporting layer.</p>
+    </div>
+
+    <h2>Certifications</h2>
+    <p>Google Data Analytics Professional Certificate — 2022</p>
+
+</body>
+</html>

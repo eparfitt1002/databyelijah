@@ -32,6 +32,14 @@
         <priority>0.7</priority>
     </url>
     
+    <!-- Resume Page -->
+    <url>
+        <loc>https://databyelijah.com/resume.html</loc>
+        <lastmod>2026-08-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Contact Page -->
     <url>
         <loc>https://databyelijah.com/contact.html</loc>

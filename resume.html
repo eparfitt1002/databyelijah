@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WH0PTHE2QZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WH0PTHE2QZ');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resume of Elijah Parfitt, a freelance Business Intelligence Developer and data analyst specializing in Power BI dashboards, SQL, Python automation, and data engineering. Available for contract work.">
+    <title>Resume | DataByElijah</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 100px; width: auto; vertical-align: middle; }
+        .nav-right { display: flex; align-items: center; gap: 3rem; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #38bdf8; }
+
+        /* Resume Header */
+        .resume-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3.5rem 5% 1rem;
+        }
+        .resume-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+        .resume-header .subtitle {
+            color: #38bdf8;
+            font-size: 1.15rem;
+            font-weight: 600;
+            max-width: 700px;
+            margin-bottom: 1.25rem;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .contact-row a { color: #cbd5e1; text-decoration: none; }
+        .contact-row a:hover { color: #38bdf8; }
+
+        /* Content Sections */
+        .resume-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem 5% 5rem;
+        }
+        .resume-content h2 {
+            font-size: 1.6rem;
+            color: #f8fafc;
+            margin: 2.5rem 0 1rem;
+        }
+        .resume-content h2:first-child { margin-top: 0; }
+        .resume-content p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 1rem; }
+        .resume-content strong { color: #f8fafc; }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .stat-box {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-box .num { font-size: 2rem; font-weight: 800; color: #38bdf8; }
+        .stat-box .label { color: #94a3b8; font-size: 0.85rem; margin-top: 0.25rem; }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .skill-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+        }
+        .skill-card h3 {
+            color: #38bdf8;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .skill-card p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0; }
+
+        /* Experience */
+        .experience-item {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .experience-item h3 { font-size: 1.2rem; color: #f8fafc; margin-bottom: 0.15rem; }
+        .experience-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .experience-meta strong { color: #38bdf8; }
+
+        .resume-content ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 0; }
+        .resume-content li { position: relative; padding-left: 1.75rem; font-size: 1.02rem; color: #cbd5e1; }
+        .resume-content li::before { content: "▹"; position: absolute; left: 0; top: -2px; font-size: 1.4rem; color: #38bdf8; font-weight: bold; }
+
+        /* Projects */
+        .project-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover { border-color: #38bdf8; transform: translateY(-3px); }
+        .project-card h3 { font-size: 1.15rem; color: #f8fafc; margin-bottom: 0.5rem; }
+        .project-card p { margin-bottom: 1rem; }
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+        }
+        .tech-badge {
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 999px;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+        .project-link {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .project-link:hover { text-decoration: underline; }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #38bdf8;
+            margin-top: 1rem;
+        }
+        .btn-primary:hover { background-color: transparent; color: #38bdf8; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .resume-header h1 { font-size: 2rem; }
+        }
+
+        @media print {
+            nav, footer, .btn-primary { display: none; }
+            body { background-color: #ffffff; color: #0f172a; }
+            .resume-content h2, .resume-header h1, .experience-item h3, .project-card h3, .skill-card h3 { color: #0f172a; }
+            .experience-item, .project-card, .skill-card, .stat-box { background-color: #ffffff; border-color: #cbd5e1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="DataByElijah Logo">
+        </a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="services.html">Services</a>
+                <a href="dashboards.html">Dashboards</a>
+                <a href="insights.html">Insights</a>
+                <a href="resume.html" class="active">Resume</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="resume-header">
+        <h1>Elijah Parfitt</h1>
+        <p class="subtitle">Business Intelligence Developer &amp; Freelance Data Consultant</p>
+        <div class="contact-row">
+            <a href="mailto:elijah@databyelijah.com">elijah@databyelijah.com</a>
+            <a href="https://databyelijah.com" target="_blank" rel="noopener noreferrer">databyelijah.com</a>
+            <a href="https://www.linkedin.com/in/databyelijah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/eparfitt1002" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+    </header>
+
+    <main class="resume-content">
+
+        <h2>Professional Summary</h2>
+        <p>Business Intelligence Developer with 5+ years of experience building enterprise Power BI reporting and automated data pipelines. Combines dashboard and DAX expertise with hands-on SQL, Python, and cloud data engineering (Databricks, Microsoft Fabric) to turn large, messy datasets into decision-ready analytics. Proven track record of measurable business impact — six-figure cost savings, 80% faster reporting, and data models spanning millions of rows. Seeking freelance and contract engagements in data analysis, dashboard development, and light data engineering.</p>
+
+        <div class="stat-row">
+            <div class="stat-box"><div class="num">$650K+</div><div class="label">Annual Savings Delivered</div></div>
+            <div class="stat-box"><div class="num">$100K+</div><div class="label">Return Mitigation</div></div>
+            <div class="stat-box"><div class="num">80%</div><div class="label">Faster Reporting</div></div>
+        </div>
+
+        <h2>Core Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>BI &amp; Visualization</h3>
+                <p>Power BI, DAX, Power Query, Tableau, Executive KPI Reporting, Data Modeling (Star Schema)</p>
+            </div>
+            <div class="skill-card">
+                <h3>Data Engineering &amp; Cloud</h3>
+                <p>Azure Databricks, Microsoft Fabric, Apache Spark, ETL/ELT Pipeline Design, Google Cloud Run, Cloud Scheduler, Cloud Storage, PostgreSQL</p>
+            </div>
+            <div class="skill-card">
+                <h3>Languages &amp; Automation</h3>
+                <p>SQL, Python, Power Automate, Workflow Automation, API Integration</p>
+            </div>
+            <div class="skill-card">
+                <h3>Applied AI</h3>
+                <p>Gemini API / LLM Integration, Prompt Engineering, Computer Vision &amp; Image Processing</p>
+            </div>
+            <div class="skill-card">
+                <h3>Platforms &amp; Tools</h3>
+                <p>Excel, Salesforce, Streamlit, Docker, Flask, Google Sheets API</p>
+            </div>
+        </div>
+
+        <h2>Professional Experience</h2>
+        <div class="experience-item">
+            <h3>Business Intelligence Developer</h3>
+            <div class="experience-meta">
+                <span><strong>Gap Inc.</strong></span>
+                <span>May 2021 – Present</span>
+                <span>Hybrid, United States</span>
+            </div>
+            <ul>
+                <li>Deliver high-volume data insights and reporting on customer experience for contact center leadership, translating complex, messy datasets into actionable business recommendations.</li>
+                <li>Design and build Power BI dashboards and reports using DAX, Power Query, and star-schema data modeling, engineered to run efficiently across multi-million-row datasets.</li>
+                <li>Write and optimize complex SQL queries across Azure Databricks and Microsoft Fabric environments to support enterprise-scale reporting and analytics.</li>
+                <li>Automate recurring reporting workflows with Power Automate and Python, reducing manual effort and improving data reliability.</li>
+                <li>Partner cross-functionally with Client Experience leadership to identify KPIs, analyze trends, and deliver strategic, data-driven recommendations that improved customer service operations.</li>
+            </ul>
+        </div>
+
+        <h2>Selected Projects</h2>
+        <div class="project-card">
+            <h3>CFPB Consumer Complaint Analysis</h3>
+            <p>Automated Databricks-to-Power BI pipeline analyzing 8.3M+ consumer complaint records, with scheduled API-based ingestion, root-cause decomposition analysis, and geospatial mapping of company response times.</p>
+            <div class="tech-badges">
+                <span class="tech-badge">Databricks</span>
+                <span class="tech-badge">Power BI</span>
+                <span class="tech-badge">Scheduled API Ingestion</span>
+            </div>
+            <a href="cfpb-analysis.html" class="project-link">View Case Study →</a>
+        </div>
+        <div class="project-card">
+            <h3>Contact Center SLA Performance Dashboard</h3>
+            <p>Hand-built Python ELT pipeline and Power BI dashboard processing 52,000+ calls end-to-end with no managed cloud platform. Identified the drivers behind 92% SLA compliance, informing $650K+ in annual workflow savings.</p>
+            <div class="tech-badges">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Local ELT Pipeline</span>
+                <span class="tech-badge">Power BI</span>
+            </div>
+            <a href="contact-center-analysis.html" class="project-link">View Case Study →</a>
+        </div>
+        <div class="project-card">
+            <h3>RarezWarez AI Inventory Pipeline</h3>
+            <p>Serverless GCP pipeline (Cloud Run, Cloud Scheduler, Cloud Storage) using Gemini AI computer vision to auto-generate structured e-commerce listings from raw product photos, feeding a Databricks warehouse and Power BI reporting layer.</p>
+            <div class="tech-badges">
+                <span class="tech-badge">Google Cloud Run</span>
+                <span class="tech-badge">Gemini AI</span>
+                <span class="tech-badge">Databricks</span>
+                <span class="tech-badge">Streamlit</span>
+            </div>
+            <a href="computer-vision-analysis.html" class="project-link">View Case Study →</a>
+        </div>
+
+        <h2>Certifications</h2>
+        <p>Google Data Analytics Professional Certificate — 2022</p>
+
+        <a href="contact.html" class="btn-primary">Let's Work Together</a>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #0f172a; border-top: 1px solid #1e293b; padding: 3rem 5%; text-align: center; margin-top: auto;">
+        <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            <a href="index.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Home</a>
+            <a href="services.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Services</a>
+            <a href="dashboards.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Dashboards</a>
+            <a href="insights.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Insights</a>
+            <a href="resume.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Resume</a>
+            <a href="contact.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Contact</a>
+        </div>
+        <p style="color: #475569; font-size: 0.85rem;">&copy; 2026 DataByElijah. All rights reserved.</p>
+    </footer>
+</body>
+</html>
