@@ -355,7 +355,10 @@
 
     <!-- The Top Link Grid -->
     <section class="portfolio-grid">
-        <!-- Card 1 -->
+        <!--
+        TEMPORARILY REMOVED (2026-08-12): RarezWarez AI Inventory Pipeline card,
+        being reworked from a portfolio project into a paid SaaS. Uncomment to restore.
+
         <a href="#inventory-project" class="grid-card">
             <div class="card-image"><span>📦</span></div>
             <div class="card-content">
@@ -363,6 +366,7 @@
                 <p>Serverless GCP + Gemini AI pipeline turning raw photos into structured eBay listings.</p>
             </div>
         </a>
+        -->
 
         <!-- Card 2 -->
         <!-- The href="#cfpb-project" tells the browser to scroll to the element with id="cfpb-project" -->
@@ -389,7 +393,11 @@
     <!-- DETAILED PROJECT SECTIONS DOWN THE PAGE    -->
     <!-- ========================================== -->
 
-    <!-- PROJECT 1 -->
+    <!--
+    TEMPORARILY REMOVED (2026-08-12): PROJECT 1, RarezWarez AI Inventory Pipeline
+    detail section, being reworked from a portfolio project into a paid SaaS.
+    Uncomment to restore. Full source lives in Ebay-Listing-Pipeline/.
+
     <div class="project-container" id="inventory-project">
         <div class="project-header">
             <h2>RarezWarez AI Inventory Pipeline</h2>
@@ -406,14 +414,14 @@
             </div>
 
             <h3>Project Overview</h3>
-            <p>An end-to-end e-commerce data pipeline that turns raw, unsorted product photography into ready-to-list eBay inventory — no manual data entry involved. Photos are batched, segmented, and sent through a serverless AI service that writes the SEO title, condition, description, and pricing for every item automatically.</p>
+            <p>An end-to-end e-commerce data pipeline that turns raw, unsorted product photography into ready-to-list eBay inventory - no manual data entry involved. Photos are batched, segmented, and sent through a serverless AI service that writes the SEO title, condition, description, and pricing for every item automatically.</p>
 
             <h3>Behind the Pipeline</h3>
-            <p>Photos sync to a Google Cloud Storage bucket and are picked up every minute by a Python service running on Google Cloud Run. Items are separated automatically by detecting a "blackout" divider photo — the lens covered by hand between items — using image-brightness detection. Each item's photos are sent to the Gemini API, which returns a structured listing (title, condition, description, and estimated value/shipping) as clean JSON. The finished listings are then loaded into a Databricks SQL warehouse, managed day-to-day through a custom Streamlit terminal, and tracked in Power BI to compare AI-estimated pricing against what items actually sell for.</p>
+            <p>Photos sync to a Google Cloud Storage bucket and are picked up every minute by a Python service running on Google Cloud Run. Items are separated automatically by detecting a "blackout" divider photo - the lens covered by hand between items - using image-brightness detection. Each item's photos are sent to the Gemini API, which returns a structured listing (title, condition, description, and estimated value/shipping) as clean JSON. The finished listings are then loaded into a Databricks SQL warehouse, managed day-to-day through a custom Streamlit terminal, and tracked in Power BI to compare AI-estimated pricing against what items actually sell for.</p>
 
             <h3>Key Highlights</h3>
             <ul>
-                <li><strong>Physical Segmentation, No Manual Sorting:</strong> A single blackout photo — lens covered by hand — is enough to split a 200+ photo batch into individual items, with no folder organizing or manual tagging required.</li>
+                <li><strong>Physical Segmentation, No Manual Sorting:</strong> A single blackout photo - lens covered by hand - is enough to split a 200+ photo batch into individual items, with no folder organizing or manual tagging required.</li>
                 <li><strong>AI-Generated Listings:</strong> The Gemini API reads each item's photos and produces a ready-to-post eBay listing (title, condition, description, pricing) in one structured pass.</li>
                 <li><strong>Closed-Loop Analytics:</strong> Power BI compares the AI's estimated value against the actual sold price, turning every completed sale into feedback on how well the model is pricing inventory.</li>
             </ul>
@@ -421,6 +429,7 @@
             <a href="computer-vision-analysis.html" class="btn-case-study">Read the Full Case Study →</a>
         </div>
     </div>
+    -->
 
     <!-- PROJECT 2 (Notice the id="cfpb-project" matches the anchor link above) -->
     <div class="project-container" id="cfpb-project">
