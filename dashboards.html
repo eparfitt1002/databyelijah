@@ -387,6 +387,15 @@
             </div>
         </a>
 
+        <!-- Card 4 -->
+        <a href="#customer-loyalty-project" class="grid-card">
+            <div class="card-image"><img src="loyalty.png" alt="Airline Customer Loyalty Analysis preview"></div>
+            <div class="card-content">
+                <h3>Airline Customer Loyalty Analysis</h3>
+                <p>Multivariate Python analysis of 100K+ passengers to find what actually drives loyalty.</p>
+            </div>
+        </a>
+
     </section>
 
     <!-- ========================================== -->
@@ -499,6 +508,38 @@
             </ul>
 
             <a href="contact-center-analysis.html" class="btn-case-study">Read the Full Case Study →</a>
+        </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="project-container" id="customer-loyalty-project">
+        <div class="project-header">
+            <h2>Airline Customer Loyalty Analysis</h2>
+            <p>Python / Jupyter Data Analysis</p>
+        </div>
+
+        <div class="project-details">
+            <div class="tech-badges">
+                <span class="tech-badge"><img src="python_icon.png" alt="Python">Python</span>
+                <span class="tech-badge">Pandas</span>
+                <span class="tech-badge">Matplotlib / Seaborn</span>
+                <span class="tech-badge">Scikit-learn</span>
+            </div>
+
+            <h3>Project Overview</h3>
+            <p>A multivariate exploration of the Airline Passenger Satisfaction dataset (Kaggle), covering <strong>103,904 passenger records</strong> across 23 variables. The analysis applies a lens shaped by years of contact center CX work, loyal customers vs. one-and-done customers, what actually separates them, testing service ratings, trip context, and delays against loyalty to see which dimensions actually move the needle.</p>
+
+            <h3>Behind the Analysis</h3>
+            <p>Built entirely in a Jupyter notebook with pandas, matplotlib, and seaborn for exploration, the analysis works through the data in layers rather than jumping straight to a model: first checking whether loyalty simply tracks who's flying, then ranking all 14 service-rating dimensions by the gap between loyal and disloyal customers, then testing operational reliability, before finally training a Random Forest classifier to weigh every factor together. The model reached 94.6% accuracy separating loyal from disloyal passengers.</p>
+
+            <h3>Key Insights Discovered</h3>
+            <ul>
+                <li><strong>Who's Flying Beats How the Flight Went:</strong> Trip context, mainly business vs. personal travel, age, and trip length, outweighs the entire service experience in explaining loyalty.</li>
+                <li><strong>Booking and Boarding Stand Out:</strong> Among 14 service-rating dimensions, online boarding, on-time convenience, and easy booking separate loyal from disloyal customers the most. Comfort and in-flight extras barely register.</li>
+                <li><strong>Delays Don't Move Loyalty:</strong> Delay frequency and severity are nearly identical between loyal and disloyal passengers, the "a late flight kills loyalty" assumption doesn't hold up in this data.</li>
+            </ul>
+
+            <a href="customer-loyalty-casestudy.html" class="btn-case-study">Read the Full Case Study →</a>
         </div>
     </div>
 

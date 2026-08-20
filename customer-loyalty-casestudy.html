@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WH0PTHE2QZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WH0PTHE2QZ');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A multivariate exploration of the Airline Passenger Satisfaction dataset, testing service ratings, trip context, and delays against customer loyalty.">
+    <title>DataByElijah | Airline Customer Loyalty Analysis — Case Study</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1e293b;
+        }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo img { height: 100px; width: auto; vertical-align: middle; }
+        .nav-right { display: flex; align-items: center; gap: 3rem; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #38bdf8; }
+
+        /* Case Study Header */
+        .case-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3.5rem 5% 1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        .case-header p.eyebrow {
+            color: #38bdf8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+        .case-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .case-header .subtitle {
+            color: #94a3b8;
+            font-size: 1.15rem;
+            max-width: 700px;
+        }
+
+        /* Tech Badges */
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 2rem 0 0;
+        }
+        .tech-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 999px;
+            padding: 0.5rem 1rem 0.5rem 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+        .tech-badge img { height: 20px; width: 20px; object-fit: contain; border-radius: 3px; }
+
+        /* Content Sections */
+        .case-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 5% 5rem;
+        }
+        .case-content h2 {
+            font-size: 1.6rem;
+            color: #f8fafc;
+            margin: 2.5rem 0 1rem;
+        }
+        .case-content h2:first-child { margin-top: 0; }
+        .case-content p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 1rem; }
+        .case-content strong { color: #f8fafc; }
+
+        .callout {
+            background-color: #1e293b;
+            border-left: 4px solid #38bdf8;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0 2rem;
+            color: #cbd5e1;
+        }
+        .callout strong { color: #38bdf8; }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .stat-box {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stat-box .num { font-size: 2rem; font-weight: 800; color: #38bdf8; }
+        .stat-box .label { color: #94a3b8; font-size: 0.85rem; margin-top: 0.25rem; }
+
+        /* Process Timeline */
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        .process-step {
+            display: flex;
+            gap: 1.25rem;
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        .process-step .step-num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #0f172a;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+        .process-step h3 { color: #f8fafc; font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .process-step p { margin-bottom: 0; color: #94a3b8; font-size: 0.98rem; }
+
+        .case-content ul { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem; }
+        .case-content li { position: relative; padding-left: 1.75rem; font-size: 1.02rem; color: #cbd5e1; }
+        .case-content li::before { content: "▹"; position: absolute; left: 0; top: -2px; font-size: 1.4rem; color: #38bdf8; font-weight: bold; }
+
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            margin-right: 1rem;
+        }
+        .btn-primary {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: 2px solid #38bdf8;
+        }
+        .btn-primary:hover { background-color: transparent; color: #38bdf8; }
+        .btn-secondary {
+            background-color: transparent;
+            color: #f8fafc;
+            border: 2px solid #475569;
+        }
+        .btn-secondary:hover { border-color: #cbd5e1; color: #38bdf8; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .case-header h1 { font-size: 2rem; }
+            .process-step { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="DataByElijah Logo">
+        </a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="services.html">Services</a>
+                <a href="dashboards.html">Dashboards</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="case-header">
+        <a href="dashboards.html#customer-loyalty-project" class="back-link">← Back to Dashboards</a>
+        <p class="eyebrow">Case Study</p>
+        <h1>What Drives Airline Customer Loyalty?</h1>
+        <p class="subtitle">A multivariate exploration of the Airline Passenger Satisfaction dataset (Kaggle), testing service ratings, trip context, and delays against loyalty using the same lens that shaped years of contact center CX work.</p>
+        <a href="customer_loyalty_analysis.html" class="back-link" target="_blank" rel="noopener noreferrer">View the Full Notebook →</a>
+        <div class="tech-badges">
+            <span class="tech-badge"><img src="python_icon.png" alt="Python">Python</span>
+            <span class="tech-badge">Pandas</span>
+            <span class="tech-badge">Matplotlib / Seaborn</span>
+            <span class="tech-badge">Scikit-learn</span>
+            <span class="tech-badge">Jupyter Notebook</span>
+        </div>
+    </header>
+
+    <main class="case-content">
+
+        <h2>The Question</h2>
+        <p>This analysis uses the <a href="https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction/data?select=train.csv" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;">Airline Passenger Satisfaction dataset</a> on Kaggle, a public dataset of over 100,000 airline passenger records covering service ratings, trip context, and flight delays. It's used here to explore a question shaped by years of contact center CX work: loyal customers vs. one-and-done customers, what actually separates them? Using each passenger's <code>Customer Type</code> (Loyal / disloyal) as a proxy for loyalty, the analysis tests that question against service ratings, trip context, and delays to see which dimensions actually move the needle.</p>
+
+        <div class="stat-row">
+            <div class="stat-box"><div class="num">103,904</div><div class="label">Passenger Records</div></div>
+            <div class="stat-box"><div class="num">23</div><div class="label">Variables Analyzed</div></div>
+            <div class="stat-box"><div class="num">94.6%</div><div class="label">Model Accuracy</div></div>
+        </div>
+
+        <h2>Approach</h2>
+        <p>Rather than jumping straight to a model, the analysis builds up in layers, ruling out simpler explanations before trusting a more complex one.</p>
+
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>Data Overview</h3>
+                    <p>Checked shape, types, missingness, and target balance across the full 103,904-row dataset before drawing any conclusions from it.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Loyalty vs. Trip Context</h3>
+                    <p>Tested whether loyalty simply tracks who's flying, class, type of travel, age, flight distance, before crediting the service experience with anything.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Loyalty vs. Service Ratings</h3>
+                    <p>Ranked all 14 in-flight and ground experience dimensions by the gap between loyal and disloyal average ratings, so the biggest drivers surface first instead of eyeballing 14 separate charts.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <div>
+                    <h3>Loyalty vs. Operational Reliability</h3>
+                    <p>Compared delay frequency and severity between loyal and disloyal passengers using the industry-standard 15-minute threshold, the one dimension in the dataset that isn't a subjective rating.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">5</div>
+                <div>
+                    <h3>What Predicts Loyalty</h3>
+                    <p>Trained a Random Forest classifier across every dimension at once to see what separates loyal from disloyal customers once everything else is accounted for. The model reached 94.6% accuracy.</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="callout"><strong>A caveat worth carrying forward:</strong> loyalty isn't evenly split across trip purpose. Personal travel is 99.5% "Loyal Customer," while business travel is only 73.7% loyal, the reverse of typical CX intuition, where routine business flyers are usually the most loyal segment. That suggests <code>Customer Type</code> may be capturing loyalty-program membership more than satisfaction-driven repeat business, a distinction worth holding onto before treating every finding below as a service story.</p>
+
+        <h2>Key Findings</h2>
+        <ul>
+            <li><strong>Who's flying beats how the flight went.</strong> Trip context, mainly business vs. personal travel, age, and trip length, outweighs the entire service experience.</li>
+            <li><strong>Booking and boarding stand out among the service ratings.</strong> Online boarding, on-time convenience, and easy booking separate loyal from disloyal customers the most. Comfort and in-flight extras barely register.</li>
+            <li><strong>Delays don't move loyalty.</strong> Whether a flight was on time made almost no difference, the "a late flight kills loyalty" assumption doesn't hold up in this data.</li>
+            <li><strong>Read this as a technique demonstration, not a verdict.</strong> The dataset doesn't say why someone is labeled "loyal," so these findings illustrate a multivariate analysis approach rather than a validated loyalty strategy.</li>
+        </ul>
+
+        <a href="dashboards.html#customer-loyalty-project" class="btn-primary">Back to Dashboards</a>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #0f172a; border-top: 1px solid #1e293b; padding: 3rem 5%; text-align: center; margin-top: auto;">
+        <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            <a href="index.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Home</a>
+            <a href="services.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Services</a>
+            <a href="dashboards.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Dashboards</a>
+            <a href="resume.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Resume</a>
+            <a href="contact.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#cbd5e1'">Contact</a>
+        </div>
+        <p style="color: #475569; font-size: 0.85rem;">&copy; 2026 DataByElijah. All rights reserved.</p>
+    </footer>
+</body>
+</html>
