@@ -1,0 +1,6 @@
+# Personal job-search files synced via Google Drive; never publish these
+JobSearchPrivate/
+
+# Google Drive for Desktop sync artifacts
+.tmp.driveupload/
+desktop.ini
