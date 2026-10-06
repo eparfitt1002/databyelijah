@@ -14,8 +14,8 @@
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with Elijah about data engineering, Power BI, or analytics opportunities.">
-    <title>Contact | DataByElijah</title>
+    <meta name="description" content="Book a free 20-minute call with Elijah to talk through your reporting, dashboard, or data automation needs.">
+    <title>Book a Free Call | DataByElijah</title>
 
     <style>
         /* Base Reset & Global Styles */
@@ -105,151 +105,104 @@
             fill: currentColor; 
         }
 
-        /* Contact Section Container */
-        .contact-container {
+        /* Booking Section */
+        .book-container {
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
             padding: 4rem 5%;
         }
 
-        .contact-wrapper {
+        .book-wrapper {
             background-color: #1e293b;
             padding: 3rem;
             border-radius: 12px;
             border: 1px solid #334155;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
-        .contact-header {
+        .book-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
-        .contact-header h1 {
+        .book-header h1 {
             font-size: 2.5rem;
             font-weight: 800;
-            color: #f8fafc;
             margin-bottom: 0.5rem;
         }
 
-        .contact-header p {
+        .book-header p {
             color: #94a3b8;
             font-size: 1.1rem;
         }
 
-        /* Form Styling */
-        form {
+        .call-points {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #cbd5e1;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
+        .call-points div {
             background-color: #0f172a;
             border: 1px solid #334155;
-            border-radius: 6px;
-            color: #f8fafc;
-            font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #38bdf8;
-            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        select {
-            appearance: none;
-            cursor: pointer;
-        }
-
-        /* File Upload Styling */
-        input[type="file"] {
-            background-color: transparent;
-            border: 1px dashed #475569;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            color: #94a3b8;
-        }
-
-        input[type="file"]:hover {
-            border-color: #38bdf8;
-            color: #f8fafc;
-        }
-
-        /* Submit Button */
-        .btn-submit {
-            grid-column: 1 / -1;
+            border-radius: 8px;
             padding: 1rem;
-            background-color: #38bdf8;
-            color: #0f172a;
-            border: none;
-            border-radius: 6px;
-            font-size: 1.125rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
+            color: #cbd5e1;
+            font-size: 0.95rem;
         }
 
-        .btn-submit:hover {
-            background-color: #0ea5e9;
-            transform: translateY(-2px);
+        .call-points strong {
+            display: block;
+            color: #38bdf8;
+            margin-bottom: 0.25rem;
         }
 
-        /* Responsive Design for Mobile */
+        .booking-frame {
+            width: 100%;
+            height: 640px;
+            border: 0;
+            border-radius: 8px;
+            background-color: #f8fafc;
+        }
+
+        .booking-fallback {
+            text-align: center;
+            color: #94a3b8;
+            padding: 2rem 0;
+        }
+
+        .booking-fallback a {
+            color: #38bdf8;
+        }
+
         @media (max-width: 768px) {
-            form {
-                grid-template-columns: 1fr;
+            .nav-right {
+                gap: 1rem;
             }
-            
+
             .nav-links {
-                display: none; 
+                display: none;
             }
-            
+
             .social-icons {
-                border-left: none; 
+                border-left: none;
                 padding-left: 0;
             }
-            
-            .contact-wrapper {
-                padding: 2rem 1.5rem;
+
+            .book-wrapper {
+                padding: 2rem 1.25rem;
+            }
+
+            .call-points {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-frame {
+                height: 720px;
             }
         }
     </style>
@@ -267,8 +220,8 @@
                 <a href="index.html">Home</a>
                 <a href="dashboards.html">Dashboards</a>
                 <a href="resume.html">Resume</a>
-                <a href="contact.html" class="active">Contact</a>
-                <a href="book.html" onclick="gtag('event', 'book_click', {cta_location: 'contact_nav'})">Book a Call</a>
+                <a href="contact.html">Contact</a>
+                <a href="book.html" class="active">Book a Call</a>
             </div>
 
             <!-- Social Media Icons -->
@@ -295,60 +248,41 @@
         </div>
     </nav>
 
-    <!-- Contact Form Section -->
-    <main class="contact-container">
-        <div class="contact-wrapper">
-            <div class="contact-header">
-                <h1>Get In Touch</h1>
-                <p>Whether it's a role, a project, or just a question, provide a few details and I'll follow up.</p>
-                <p style="margin-top: 0.75rem; font-size: 1rem;">Rather talk it through? <a href="book.html" style="color: #38bdf8;" onclick="gtag('event', 'book_click', {cta_location: 'contact_header'})">Book a free 20-minute call</a>.</p>
+    <!-- Booking Section -->
+    <main class="book-container">
+        <div class="book-wrapper">
+            <div class="book-header">
+                <h1>Book a Free 20-Minute Call</h1>
+                <p>Tell me where your reporting hurts. You'll leave with at least one concrete idea, whether or not we work together.</p>
             </div>
 
-<!-- Forminit Integrated Contact Form -->
-            <form action="https://forminit.com/f/h1720xf2qyl" method="POST" enctype="multipart/form-data">
-                
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="fi-sender-fullName" required placeholder="John Doe">
-                </div>
+            <div class="call-points">
+                <div><strong>Spreadsheet overload</strong>Weekly reports built by hand in Excel that eat hours.</div>
+                <div><strong>Support and ops metrics</strong>SLA, handle time, and quality numbers nobody trusts.</div>
+                <div><strong>Disconnected tools</strong>Data stuck in your POS, CRM, or helpdesk with no single view.</div>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="fi-sender-email" required placeholder="john@company.com">
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="service">Primary Area of Focus</label>
-                    <select id="service" name="fi-text-service" required>
-                        <option value="" disabled selected>Select a service type...</option>
-                        <option value="BI_Dashboards">Business Intelligence & Power BI</option>
-                        <option value="Data_Engineering">Data Engineering & Pipelines</option>
-                        <option value="Python_Automation">Python Workflow Automation</option>
-                        <option value="AI_Integration">Applied AI & LLM Integration</option>
-                        <option value="Other">Other / Not Sure</option>
-                    </select>
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="tech_stack">Current Tech Stack / Data Sources</label>
-                    <input type="text" id="tech_stack" name="fi-text-techStack" placeholder="e.g., SQL Server, Excel, Shopify, Salesforce">
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="goals">What is the primary business goal of this project?</label>
-                    <textarea id="goals" name="fi-text-goals" required placeholder="Describe what a successful outcome looks like (e.g., 'We need to cut manual reporting time in half' or 'We need to integrate our raw operational data into a central warehouse')."></textarea>
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="reference_files">Reference Files (Optional)</label>
-                    <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem;">Upload screenshots of current dashboards, architecture diagrams, or sample data images.</p>
-                    <input type="file" id="reference_files" name="fi-file-referenceFiles" accept="image/png, image/jpeg, image/jpg, .pdf" multiple>
-                </div>
-
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
+            <!-- Google Calendar appointment schedule embed src (Calendar > Appointment schedule > Share > Website embed) -->
+            <div id="booking" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ICDulachOZXT3BY59cxwkpV9M-6cd4jUk6x_MPDJ6tjZ_kWEXXwxexPSN2ZnEjQTClVl9zmBi?gv=true"></div>
         </div>
     </main>
+
+    <script>
+        (function () {
+            var box = document.getElementById('booking');
+            var src = box.getAttribute('data-src');
+            if (src) {
+                var frame = document.createElement('iframe');
+                frame.className = 'booking-frame';
+                frame.src = src;
+                frame.title = 'Book a call with Elijah';
+                box.appendChild(frame);
+            } else {
+                box.className = 'booking-fallback';
+                box.innerHTML = 'Online booking is being set up. In the meantime, <a href="contact.html">send me a note</a> and I will reply with times that work.';
+            }
+        })();
+    </script>
 <!-- Footer -->
     <footer style="background-color: #0f172a; border-top: 1px solid #1e293b; padding: 3rem 5%; text-align: center; margin-top: auto;">
         <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">

@@ -215,8 +215,39 @@
             color: #38bdf8;
         }
 
+        /* Who I Help */
+        .who-help {
+            max-width: 1100px;
+            margin: 0 auto 3rem;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .who-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .who-card h2 {
+            color: #38bdf8;
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .who-card p {
+            color: #cbd5e1;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .who-help {
+                grid-template-columns: 1fr;
+            }
+
             .service-row {
                 flex-direction: column;
                 align-items: center;
@@ -270,6 +301,7 @@
                 <a href="dashboards.html">Dashboards</a>
                 <a href="resume.html">Resume</a>
                 <a href="contact.html">Contact</a>
+                <a href="book.html" onclick="gtag('event', 'book_click', {cta_location: 'services_nav'})">Book a Call</a>
             </div>
         </div>
     </nav>
@@ -279,6 +311,18 @@
         <h1>Scalable Solutions for <span>Complex Data</span></h1>
         <p>From modernizing enterprise data warehouses to automating hours of manual workflow, here's how I approach data engineering and business intelligence end to end.</p>
     </header>
+
+    <!-- Who I Help -->
+    <section class="who-help">
+        <div class="who-card">
+            <h2>Columbus and Ohio Small Businesses</h2>
+            <p>Restaurants, clinics, trades, retailers, and nonprofits that run on spreadsheets and gut feel. I turn the data already sitting in your POS, scheduling, or accounting tools into one simple dashboard, and I'm local enough to meet in person.</p>
+        </div>
+        <div class="who-card">
+            <h2>Customer Service and Operations Teams</h2>
+            <p>Growing support teams that need trustworthy SLA, handle time, escalation, and quality reporting. At Gap Inc. I built contact center analytics, including pipelines that saved $650K+ a year in manual reporting work.</p>
+        </div>
+    </section>
 
     <!-- Main Services -->
     <main class="services-container">
@@ -348,7 +392,8 @@
     <section class="cta-section">
         <h2>Ready to leverage your data?</h2>
         <p>Whether you're hiring or have a project in mind, I'd love to talk about your infrastructure, reporting bottlenecks, or automation goals.</p>
-        <a href="contact.html" class="btn-primary">Get In Touch</a>
+        <a href="book.html" class="btn-primary" onclick="gtag('event', 'book_click', {cta_location: 'services_cta'})">Book a Free Call</a>
+        <p style="margin-top: 1.25rem; font-size: 0.95rem;">Prefer writing? <a href="contact.html" style="color: #38bdf8;">Send a message instead</a>.</p>
     </section>
 <!-- Footer -->
     <footer style="background-color: #0f172a; border-top: 1px solid #1e293b; padding: 3rem 5%; text-align: center; margin-top: auto;">
