@@ -374,6 +374,15 @@
             </div>
         </a>
 
+        <!-- Card: Chase -->
+        <a href="#chase-project" class="grid-card">
+            <div class="card-image"><span>🏦</span></div>
+            <div class="card-content">
+                <h3>Chase Complaint &amp; Friction Analysis</h3>
+                <p>Power BI report on 40K+ public CFPB complaints about Chase, built around customer-journey friction and peer benchmarks.</p>
+            </div>
+        </a>
+
         <!-- Card 3 -->
         <a href="#contact-center-project" class="grid-card">
             <div class="card-image"><img src="sla_dash.jpg" alt="Contact Center SLA dashboard preview"></div>
@@ -463,6 +472,41 @@
             </ul>
 
             <a href="cfpb-analysis.html" class="btn-case-study">Read the Full Case Study →</a>
+        </div>
+    </div>
+
+    <!-- PROJECT: CHASE COMPLAINT ANALYSIS -->
+    <div class="project-container" id="chase-project">
+        <div class="project-header">
+            <h2>Chase Complaint &amp; Friction Analysis</h2>
+            <p>Interactive Power BI Dashboard</p>
+        </div>
+
+        <div class="iframe-wrapper">
+            <iframe title="Chase_Complaint_Analysis" src="https://app.powerbi.com/view?r=eyJrIjoiMGFmY2ZjOWEtZjIyYS00Y2FhLTllZDMtODdmYzc2Mzk4ZjgxIiwidCI6IjBhZDIxYzgxLTY2M2EtNGUzMy04ZDk3LTBlOWZmYTU0ZmE3YiJ9" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="project-details">
+            <div class="tech-badges">
+                <span class="tech-badge"><img src="python_icon.png" alt="Python">Python</span>
+                <span class="tech-badge"><img src="power_bi_logo.jpg" alt="Power BI">Power BI</span>
+                <span class="tech-badge"><img src="pipeline_icon.png" alt="Data Pipeline">CFPB API Pipeline</span>
+            </div>
+
+            <h3>Project Overview</h3>
+            <p>This report analyzes <strong>40,529 public CFPB complaints about Chase</strong> from January 2025 to July 2026. I grouped 75 issue types into 10 customer-journey friction themes, then benchmarked how complaints get resolved against five peer banks. The goal is to find where customers hit friction, size it, and point to what a team could test first.</p>
+
+            <h3>Behind the Dashboard</h3>
+            <p>Complaints were pulled month by month from the CFPB API, then cleaned and normalized in Python (deduplicating, harmonizing issue names the CFPB changed mid-period, and mapping states to regions). Friction themes and customer segments were engineered in pandas, and the Power BI model was built as a version-controlled project, with every measure validated against the Python numbers before publishing.</p>
+
+            <h3>Key Insights Discovered</h3>
+            <ul>
+                <li><strong>Money Problems Push Customers to the Phone:</strong> Complaints about getting access to funds, the largest friction theme at 9,842 complaints, are filed by phone at 5.0%, twice the 2.5% average.</li>
+                <li><strong>Disputes Are Growing Fast:</strong> Dispute and investigation complaints are up 55.8% year over year (January to July), a likely driver of "where is my dispute" status contacts and a natural candidate for proactive updates.</li>
+                <li><strong>Resolution Lags Peers:</strong> Chase closes 14.4% of complaints with relief versus a 27.4% peer average, and the gap holds within the same product. It is a hypothesis to test, not a verdict, since relief is the company's own closure code.</li>
+            </ul>
+
+            <p><em>Note: this is public complaint data, not call-center telephony. It shows where friction escalates, not call volume or containment.</em></p>
         </div>
     </div>
 
