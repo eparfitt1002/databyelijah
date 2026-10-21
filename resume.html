@@ -14,7 +14,7 @@
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Resume of Elijah Parfitt, a Business Intelligence Developer and data analyst specializing in Power BI dashboards, SQL, Python automation, and data engineering.">
+    <meta name="description" content="Resume of Elijah Parfitt, a Senior Business Intelligence Developer specializing in Power BI, semantic data modeling, advanced SQL, NICE CXone contact center analytics, and cloud data warehousing. Download the PDF.">
     <title>Resume | DataByElijah</title>
 
     <style>
@@ -205,13 +205,32 @@
         }
         .btn-primary:hover { background-color: transparent; color: #38bdf8; }
 
+        .btn-download {
+            display: inline-block;
+            background-color: transparent;
+            color: #38bdf8;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid #38bdf8;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        .btn-download:hover { background-color: #38bdf8; color: #0f172a; }
+        .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 2.5rem; }
+        .cta-row .btn-primary, .cta-row .btn-download { margin-top: 0; }
+        .stat-detail { color: #94a3b8 !important; font-size: 0.85rem !important; margin: 0.6rem 0 0 !important; }
+        .contact-row span { color: #cbd5e1; }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .resume-header h1 { font-size: 2rem; }
         }
 
         @media print {
-            nav, footer, .btn-primary { display: none; }
+            nav, footer, .btn-primary, .btn-download { display: none; }
             body { background-color: #ffffff; color: #0f172a; }
             .resume-content h2, .resume-header h1, .experience-item h3, .project-card h3, .skill-card h3 { color: #0f172a; }
             .experience-item, .project-card, .skill-card, .stat-box { background-color: #ffffff; border-color: #cbd5e1; }
@@ -238,47 +257,62 @@
     <!-- Header -->
     <header class="resume-header">
         <h1>Elijah Parfitt</h1>
-        <p class="subtitle">Business Intelligence Developer &amp; Data Consultant</p>
+        <p class="subtitle">Senior Business Intelligence Developer</p>
         <div class="contact-row">
+            <span>Columbus, OH</span>
+            <a href="tel:+16145949045">614-594-9045</a>
             <a href="mailto:elijah@databyelijah.com">elijah@databyelijah.com</a>
-            <a href="https://databyelijah.com" target="_blank" rel="noopener noreferrer">databyelijah.com</a>
-            <a href="https://www.linkedin.com/in/databyelijah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/elijah-parfitt-730082184/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/eparfitt1002" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
+        <a href="resume/Elijah-Parfitt-Resume.pdf" class="btn-download" download="Elijah-Parfitt-Resume.pdf" onclick="if(window.gtag){gtag('event','resume_download');}">&#8595; Download Resume (PDF)</a>
     </header>
 
     <main class="resume-content">
 
         <h2>Professional Summary</h2>
-        <p>Business Intelligence Developer with 5+ years of experience building enterprise Power BI reporting and automated data pipelines. Combines dashboard and DAX expertise with hands-on SQL, Python, and cloud data engineering (Databricks, Microsoft Fabric) to turn large, messy datasets into decision-ready analytics. Proven track record of measurable business impact: six-figure cost savings, 80% faster reporting, and data models spanning millions of rows. Open to full-time roles as well as contract and freelance engagements in data analysis, dashboard development, and data engineering.</p>
+        <p>Business Intelligence Developer with 5+ years of experience designing and supporting enterprise reporting and analytics solutions within cloud data warehouse environments. Skilled in translating business requirements into scalable BI solutions through semantic data modeling, advanced SQL, and dimensional data warehouse design.</p>
 
+        <h2>Key Achievements</h2>
         <div class="stat-row">
-            <div class="stat-box"><div class="num">$650K+</div><div class="label">Annual Savings Delivered</div></div>
-            <div class="stat-box"><div class="num">$100K+</div><div class="label">Return Mitigation</div></div>
-            <div class="stat-box"><div class="num">80%</div><div class="label">Faster Reporting</div></div>
+            <div class="stat-box"><div class="num">$650K+</div><div class="label">Annual Savings</div><p class="stat-detail">Automated contact center performance data pipelines, eliminating manual workflows and driving over $650K in annual savings.</p></div>
+            <div class="stat-box"><div class="num">$100K+</div><div class="label">Return Mitigation</div><p class="stat-detail">Engineered data models to uncover hidden insights, driving strategic changes that directly reduced annual return rates.</p></div>
+            <div class="stat-box"><div class="num">80%</div><div class="label">Faster Reporting</div><p class="stat-detail">Optimized foundational reporting data layers to drastically cut Power BI dashboard refresh times.</p></div>
         </div>
 
-        <h2>Core Skills</h2>
+        <h2>Technical Skills</h2>
         <div class="skills-grid">
             <div class="skill-card">
-                <h3>BI &amp; Visualization</h3>
-                <p>Power BI, DAX, Power Query, Tableau, Executive KPI Reporting, Data Modeling (Star Schema)</p>
+                <h3>BI &amp; Reporting</h3>
+                <p>Power BI, DAX, Power Query, Tableau, MicroStrategy (foundational exposure), Executive KPI Reporting, Self-Service Analytics, Semantic Data Modeling (Metrics, Attributes, Hierarchies)</p>
             </div>
             <div class="skill-card">
-                <h3>Data Engineering &amp; Cloud</h3>
-                <p>Azure Databricks, Microsoft Fabric, Apache Spark, ETL/ELT Pipeline Design, Google Cloud Run, Cloud Scheduler, Cloud Storage, PostgreSQL</p>
+                <h3>Contact Center Platforms</h3>
+                <p>NICE CXone (Interaction Analytics / AI Intents &amp; Actions, Performance Management, Quality Management, ACD Reporting), Salesforce (Call Coding), IVR Routing Data</p>
+            </div>
+            <div class="skill-card">
+                <h3>Data Warehousing &amp; Modeling</h3>
+                <p>Dimensional Modeling, Star Schema, Snowflake Schema, Fact &amp; Dimension Tables, Surrogate Keys, Relational Data Modeling, Entity Relationships, Normalization</p>
+            </div>
+            <div class="skill-card">
+                <h3>Cloud &amp; Databases</h3>
+                <p>Azure Databricks, Microsoft Fabric, Unity Catalog (Data Governance &amp; Audit Logging), Google Cloud Platform (Cloud Run, Cloud Scheduler, Cloud Storage), PostgreSQL, Relational Database Management Systems (RDBMS)</p>
             </div>
             <div class="skill-card">
                 <h3>Languages &amp; Automation</h3>
-                <p>SQL, Python, Power Automate, Workflow Automation, API Integration</p>
+                <p>SQL (Advanced Query Development, Performance Tuning, Troubleshooting, SSMS), Python, PySpark, Power Automate, API Integration, Workflow Automation</p>
+            </div>
+            <div class="skill-card">
+                <h3>Power Platform &amp; Collaboration</h3>
+                <p>Power Automate, Power Apps, SharePoint (Lists, Document Libraries, Automated Forms)</p>
             </div>
             <div class="skill-card">
                 <h3>Applied AI</h3>
-                <p>Gemini API / LLM Integration, Prompt Engineering, Computer Vision &amp; Image Processing</p>
+                <p>Gemini API / LLM Integration, Claude Code, GitHub Copilot, Agentic AI Tools, Prompt Engineering, AI-Assisted Development, Computer Vision &amp; Image Processing</p>
             </div>
             <div class="skill-card">
-                <h3>Platforms &amp; Tools</h3>
-                <p>Excel, Salesforce, Streamlit, Docker, Flask, Google Sheets API</p>
+                <h3>AI-Enabled Analytics</h3>
+                <p>Sierra AI (Chat Conversation Analysis), Microsoft Copilot for Power BI (Semantic Model Enrichment, Natural-Language Query Feasibility Assessment)</p>
             </div>
         </div>
 
@@ -287,22 +321,27 @@
             <h3>Business Intelligence Developer</h3>
             <div class="experience-meta">
                 <span><strong>Gap Inc.</strong></span>
-                <span>May 2021 – Present</span>
+                <span>May 2021 – July 2026</span>
                 <span>Hybrid, United States</span>
             </div>
             <ul>
-                <li>Deliver high-volume data insights and reporting on customer experience for contact center leadership, translating complex, messy datasets into actionable business recommendations.</li>
-                <li>Design and build Power BI dashboards and reports using DAX, Power Query, and star-schema data modeling, engineered to run efficiently across multi-million-row datasets.</li>
-                <li>Write and optimize complex SQL queries across Azure Databricks and Microsoft Fabric environments to support enterprise-scale reporting and analytics.</li>
-                <li>Automate recurring reporting workflows with Power Automate and Python, reducing manual effort and improving data reliability.</li>
-                <li>Partner cross-functionally with Client Experience leadership to identify KPIs, analyze trends, and deliver strategic, data-driven recommendations that improved customer service operations.</li>
+                <li>Gained early hands-on exposure to MicroStrategy for enterprise reporting during the first months in this role, before the team's BI stack transitioned primarily to Power BI.</li>
+                <li>Designed, developed, and maintained enterprise Power BI reporting and dashboard solutions, building semantic data models, star-schema fact and dimension tables, DAX metrics, hierarchies, and attributes that translated business requirements into scalable, self-service analytics for contact center and Client Experience leadership.</li>
+                <li>Wrote, tuned, and troubleshot advanced SQL queries across Azure Databricks and Microsoft Fabric cloud data warehouse environments to support enterprise-scale reporting on multi-million-row datasets.</li>
+                <li>Built out 300+ hours of NICE CXone Interaction Analytics reporting on call and chat word-segment data to identify agent behavior and call-trend patterns across 400+ agents and roughly 250,000 monthly contacts, correlating CXone's AI-driven Intents and Actions with IVR routing and Salesforce call-coding data to quantify contact distribution and how agents handled interactions.</li>
+                <li>Partnered with the Quality Management team on NICE CXone Performance Management reporting and validated agent-level metrics through CXone ACD reporting.</li>
+                <li>Evaluated Microsoft Copilot for Power BI against our semantic model, prototyping limited-scope natural-language querying using Sierra AI conversation data and other business dashboards; assessed the tool's maturity for the use case and recommended against further investment based on the findings.</li>
+                <li>Delivered high-volume data insights and reporting on customer experience for contact center leadership, translating complex, messy datasets into actionable, decision-ready business recommendations.</li>
+                <li>Acted as a key technical point of contact for reporting and dashboard requests, triaging issues and troubleshooting data, performance, and reporting-layer problems to keep leadership decision-making uninterrupted.</li>
+                <li>Automated recurring reporting workflows using Power Automate and Python, reducing manual effort and improving data reliability.</li>
+                <li>Partnered cross-functionally with Client Experience leadership to define KPIs, analyze trends, and deliver strategic, data-driven recommendations, driving $650K+ in annual cost savings and an 80% reduction in dashboard refresh times.</li>
             </ul>
         </div>
 
-        <h2>Selected Projects</h2>
+        <h2>Independent Projects</h2>
         <div class="project-card">
             <h3>CFPB Consumer Complaint Analysis</h3>
-            <p>Automated Databricks-to-Power BI pipeline analyzing 8.3M+ consumer complaint records, with scheduled API-based ingestion, root-cause decomposition analysis, and geospatial mapping of company response times.</p>
+            <p>Built an automated Databricks-to-Power BI pipeline analyzing 8.3M+ consumer complaint records, with scheduled API-based ingestion, root-cause decomposition analysis, and geospatial mapping of company response times.</p>
             <div class="tech-badges">
                 <span class="tech-badge">Databricks</span>
                 <span class="tech-badge">Power BI</span>
@@ -312,7 +351,7 @@
         </div>
         <div class="project-card">
             <h3>Contact Center SLA Performance Dashboard</h3>
-            <p>Hand-built Python ELT pipeline and Power BI dashboard processing 52,000+ calls end-to-end with no managed cloud platform. Identified the drivers behind 92% SLA compliance, informing $650K+ in annual workflow savings.</p>
+            <p>Hand-built a Python ELT pipeline and Power BI dashboard processing 52,000+ calls end-to-end with no managed cloud platform; identified the drivers behind 92% SLA compliance.</p>
             <div class="tech-badges">
                 <span class="tech-badge">Python</span>
                 <span class="tech-badge">Local ELT Pipeline</span>
@@ -320,29 +359,28 @@
             </div>
             <a href="contact-center-analysis.html" class="project-link">View Case Study →</a>
         </div>
-        <!--
-        TEMPORARILY REMOVED (2026-08-12): RarezWarez AI Inventory Pipeline, being
-        reworked from a portfolio project into a paid SaaS. Uncomment to restore.
-        Case study page moved to Ebay-Listing-Pipeline/computer-vision-analysis.html
-        - move it back to the site root before restoring this link.
-
         <div class="project-card">
-            <h3>RarezWarez AI Inventory Pipeline</h3>
-            <p>Serverless GCP pipeline (Cloud Run, Cloud Scheduler, Cloud Storage) using Gemini AI computer vision to auto-generate structured e-commerce listings from raw product photos, feeding a Databricks warehouse and Power BI reporting layer.</p>
+            <h3>AI-Driven Inventory &amp; E-Commerce Analytics Pipeline</h3>
+            <p>Designed and built a serverless Google Cloud Platform pipeline (Cloud Run, Cloud Scheduler, Cloud Storage) using Gemini AI computer vision to automatically generate structured product listings from raw photos, feeding a Databricks warehouse and a Power BI layer that tracks AI-estimated pricing against actual sale outcomes.</p>
             <div class="tech-badges">
-                <span class="tech-badge">Google Cloud Run</span>
+                <span class="tech-badge">Google Cloud Platform</span>
                 <span class="tech-badge">Gemini AI</span>
                 <span class="tech-badge">Databricks</span>
+                <span class="tech-badge">Power BI</span>
                 <span class="tech-badge">Streamlit</span>
             </div>
-            <a href="computer-vision-analysis.html" class="project-link">View Case Study →</a>
         </div>
-        -->
 
         <h2>Certifications</h2>
-        <p>Google Data Analytics Professional Certificate — 2022</p>
+        <ul>
+            <li>Google Data Analytics Professional Certificate (2022)</li>
+            <li>Tableau Certified Data Analyst (2021)</li>
+        </ul>
 
-        <a href="contact.html" class="btn-primary">Let's Work Together</a>
+        <div class="cta-row">
+            <a href="resume/Elijah-Parfitt-Resume.pdf" class="btn-download" download="Elijah-Parfitt-Resume.pdf" onclick="if(window.gtag){gtag('event','resume_download');}">&#8595; Download Resume (PDF)</a>
+            <a href="contact.html" class="btn-primary">Let's Work Together</a>
+        </div>
     </main>
 
     <!-- Footer -->
